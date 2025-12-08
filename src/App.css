@@ -1,42 +1,409 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+
+
+:root {
+  /* Font Families */
+  --font-tenor-sans: 'Tenor Sans', sans-serif;
+  --font-tenor-sans: 'tenor sans', sans-serif;
+  --font-public-sans: 'public sans', sans-serif;
+  --font-roboto: Roboto, sans-serif;
+  --font-public-sans: 'Public Sans', sans-serif;
+  --font-lato: lato, sans-serif;
+  --font-arial: Arial, sans-serif;
+
+  /* Font Sizes */
+  --text-8: 8px;
+  --text-12: 12px;
+  --text-14: 14px;
+  --text-15: 15px;
+  --text-16: 16px;
+  --text-18: 18px;
+  --text-20: 20px;
+  --text-22: 22px;
+  --text-24: 24px;
+  --text-30: 30px;
+  --text-32: 32px;
+  --text-40: 40px;
+  --text-42: 42px;
+  --text-54: 54px;
+  --text-68: 68px;
+
+  /* Font Weights */
+  --font-300: 300;
+  --font-400: 400;
+  --font-500: 500;
+  --font-600: 600;
+  --font-700: 700;
+
+  /* Line Heights */
+  --leading-14: 14px;
+  --leading-17: 17.25px;
+  --leading-20: 20px;
+  --leading-23: 23px;
+  --leading-24: 24px;
+  --leading-25: 25px;
+  --leading-25: 25.008px;
+  --leading-25: 25.3px;
+  --leading-27: 26.6667px;
+  --leading-27: 27px;
+  --leading-30: 30.0001px;
+  --leading-32: 31.9999px;
+  --leading-32: 32px;
+  --leading-32: 32.4px;
+  --leading-35: 34.5px;
+  --leading-36: 36px;
+  --leading-37: 36.8px;
+  --leading-38: 37.5px;
+  --leading-40: 40px;
+  --leading-40: 40.0001px;
+  --leading-42: 42px;
+  --leading-44: 44px;
+  --leading-50: 50.4px;
+  --leading-52: 52px;
+  --leading-62: 62.1px;
+  --leading-68: 68px;
+
+  /* Letter Spacing */
+  --tracking-neg2: -2px;
+  --tracking-neg1: -1px;
+  --tracking-1: 1px;
+  --tracking-2: 2px;
+  --tracking-3: 3px;
+  --tracking-32: 3.2px;
+  
+  --color-white: #ffffff;
+  --color-white-smoke: #eeeeee;
+  --color-white-smoke-1: #ebf3ef;
+  --color-white-smoke-2: #eff6f4;
+  --color-white-smoke-3: #f2f2f2;
+  --color-white-smoke-4: #f1f3f9;
+  --color-ghost-white: #f8f9fc;
+  --color-ghost-white-1: #f9f9f9;
+  --color-ghost-white-2: #fcfbfe;
+  --color-lavender: #dee3ed;
+  --color-lavender-1: #e5e7eb;
+  --color-lavender-2: #e9e6ed;
+  --color-old-lace: #fff5cb;
+  --color-linen: #ffceec;
+  --color-gainsboro: #dfe4e1;
+  --color-gainsboro-1: #daeee5;
+  --color-light-gray: #c2c9d6;
+  --color-light-gray-1: #c2dcd0;
+  --color-light-gray-2: #cfd2d4;
+  --color-light-pink: #f2a6a6;
+  --color-wheat: #fecda5;
+  --color-dark-gray: #131d18;
+  --color-dark-gray-1: #1d1e20;
+  --color-dark-gray-2: #1a2720;
+  --color-dark-gray-3: #1f2022;
+  --color-dark-gray-4: #222222;
+  --color-dark-gray-5: #252d28;
+  --color-dark-gray-6: #292a30;
+  --color-dark-gray-7: #2f3237;
+  --color-dark-gray-8: #929b9f;
+  --color-dark-gray-9: #8eb2a2;
+  --color-dark-gray-10: #b4b4b4;
+  --color-silver: #abb8c3;
+  --color-silver-1: #b3cfc2;
+  --color-cornflower-blue: #8c92f6;
+  --color-khaki: #ffcb70;
+  --color-khaki-1: #f9d78f;
+  --color-khaki-2: #caf880;
+  --color-hot-pink: #f78da7;
+  --color-sky-blue: #6ec1e4;
+  --color-sky-blue-1: #8ed1fc;
+  --color-light-slate-gray: #8f96a3;
+  --color-light-green: #61ce70;
+  --color-light-green-1: #7bdcb5;
+  --color-light-green-2: #7adcb4;
+  --color-medium-purple: #9b51e0;
+  --color-turquoise: #4aeadc;
+  --color-crimson: #cf2e2e;
+  --color-crimson-1: #fe0054;
+  --color-crimson-2: #df2020;
+  --color-crimson-3: #dc2626;
+  --color-lime-green: #7ad03a;
+  --color-orange: #ff6900;
+  --color-orange-1: #fcb900;
+  --color-orange-2: #ffa800;
+  --color-orange-3: #ffba00;
+  --color-blue-violet: #720eec;
+  --color-blue-violet-1: #6000ff;
+  --color-gray: #767676;
+  --color-gray-1: #777777;
+  --color-gray-2: #7a7a7a;
+  --color-dim-gray: #54595f;
+  --color-dim-gray-1: #5e636e;
+  --color-dim-gray-2: #5e6e6e;
+  --color-dim-gray-3: #666771;
+  --color-dim-gray-4: #687276;
+  --color-dim-gray-5: #4f7661;
+  --color-light-sea-green: #2ea2cc;
+  --color-dark-turquoise: #00a0d2;
+  --color-dark-turquoise-1: #0693e3;
+  --color-spring-green: #00d084;
+  --color-medium-blue: #0042d7;
+  --color-charcoal: #434343;
+  --color-charcoal-1: #454545;
+  --color-charcoal-2: #515151;
+  --color-charcoal-3: #4e4e53;
+  --color-forest-green: #178733;
+  --color-dark-orange: #958e09;
+  --color-dark-red: #aa0000;
+  --color-royal-blue: #0067c5;
+  --color-dark-slate-gray: #3c5a4a;
+  --color-navy: #020381;
+  --color-midnight-blue: #09013f;
+  --color-black: #000000;
+  --color-black-1: #0a0f0e;
+  --color-black-2: #111213;
+  --color-black-3: #200707;
+  --color-black-4: #0a1320;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+/* Typography Utilities - Combine as needed */
+
+.font-tenor-sans {
+  font-family: var(--font-tenor-sans);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.font-tenor-sans {
+  font-family: var(--font-tenor-sans);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.font-public-sans {
+  font-family: var(--font-public-sans);
 }
 
-.card {
-  padding: 2em;
+.font-roboto {
+  font-family: var(--font-roboto);
 }
 
-.read-the-docs {
-  color: #888;
+.font-public-sans {
+  font-family: var(--font-public-sans);
 }
+
+.font-lato {
+  font-family: var(--font-lato);
+}
+
+.font-arial {
+  font-family: var(--font-arial);
+}
+
+.text-8 {
+  font-size: var(--text-8);
+}
+
+.text-12 {
+  font-size: var(--text-12);
+}
+
+.text-14 {
+  font-size: var(--text-14);
+}
+
+.text-15 {
+  font-size: var(--text-15);
+}
+
+.text-16 {
+  font-size: var(--text-16);
+}
+
+.text-18 {
+  font-size: var(--text-18);
+}
+
+.text-20 {
+  font-size: var(--text-20);
+}
+
+.text-22 {
+  font-size: var(--text-22);
+}
+
+.text-24 {
+  font-size: var(--text-24);
+}
+
+.text-30 {
+  font-size: var(--text-30);
+}
+
+.text-32 {
+  font-size: var(--text-32);
+}
+
+.text-40 {
+  font-size: var(--text-40);
+}
+
+.text-42 {
+  font-size: var(--text-42);
+}
+
+.text-54 {
+  font-size: var(--text-54);
+}
+
+.text-68 {
+  font-size: var(--text-68);
+}
+
+.font-300 {
+  font-weight: var(--font-300);
+}
+
+.font-400 {
+  font-weight: var(--font-400);
+}
+
+.font-500 {
+  font-weight: var(--font-500);
+}
+
+.font-600 {
+  font-weight: var(--font-600);
+}
+
+.font-700 {
+  font-weight: var(--font-700);
+}
+
+.leading-14 {
+  line-height: var(--leading-14);
+}
+
+.leading-17 {
+  line-height: var(--leading-17);
+}
+
+.leading-20 {
+  line-height: var(--leading-20);
+}
+
+.leading-23 {
+  line-height: var(--leading-23);
+}
+
+.leading-24 {
+  line-height: var(--leading-24);
+}
+
+.leading-25 {
+  line-height: var(--leading-25);
+}
+
+.leading-25 {
+  line-height: var(--leading-25);
+}
+
+.leading-25 {
+  line-height: var(--leading-25);
+}
+
+.leading-27 {
+  line-height: var(--leading-27);
+}
+
+.leading-27 {
+  line-height: var(--leading-27);
+}
+
+.leading-30 {
+  line-height: var(--leading-30);
+}
+
+.leading-32 {
+  line-height: var(--leading-32);
+}
+
+.leading-32 {
+  line-height: var(--leading-32);
+}
+
+.leading-32 {
+  line-height: var(--leading-32);
+}
+
+.leading-35 {
+  line-height: var(--leading-35);
+}
+
+.leading-36 {
+  line-height: var(--leading-36);
+}
+
+.leading-37 {
+  line-height: var(--leading-37);
+}
+
+.leading-38 {
+  line-height: var(--leading-38);
+}
+
+.leading-40 {
+  line-height: var(--leading-40);
+}
+
+.leading-40 {
+  line-height: var(--leading-40);
+}
+
+.leading-42 {
+  line-height: var(--leading-42);
+}
+
+.leading-44 {
+  line-height: var(--leading-44);
+}
+
+.leading-50 {
+  line-height: var(--leading-50);
+}
+
+.leading-52 {
+  line-height: var(--leading-52);
+}
+
+.leading-62 {
+  line-height: var(--leading-62);
+}
+
+.leading-68 {
+  line-height: var(--leading-68);
+}
+
+.tracking-neg2 {
+  letter-spacing: var(--tracking-neg2);
+}
+
+.tracking-neg1 {
+  letter-spacing: var(--tracking-neg1);
+}
+
+.tracking-1 {
+  letter-spacing: var(--tracking-1);
+}
+
+.tracking-2 {
+  letter-spacing: var(--tracking-2);
+}
+
+.tracking-3 {
+  letter-spacing: var(--tracking-3);
+}
+
+.tracking-32 {
+  letter-spacing: var(--tracking-32);
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
