@@ -1,9 +1,212 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-  theme: {
-    extend: {
+export const content = ["./src/**/*.{js,jsx,ts,tsx,html}"];
+export const theme = {
+  extend: {
+    
+    /* ============================
+       FONT FAMILY
+    ============================ */
+    fontFamily: {
+      tenor: "var(--font-tenor-sans)",
+      public: "var(--font-public-sans)",
+      roboto: "var(--font-roboto)",
+      lato: "var(--font-lato)",
+      arial: "var(--font-arial)",
+    },
+
+    /* ============================
+       FONT SIZES
+    ============================ */
+    fontSize: {
+      8: "var(--text-8)",
+      12: "var(--text-12)",
+      14: "var(--text-14)",
+      15: "var(--text-15)",
+      16: "var(--text-16)",
+      18: "var(--text-18)",
+      20: "var(--text-20)",
+      22: "var(--text-22)",
+      24: "var(--text-24)",
+      30: "var(--text-30)",
+      32: "var(--text-32)",
+      40: "var(--text-40)",
+      42: "var(--text-42)",
+      54: "var(--text-54)",
+      68: "var(--text-68)",
+    },
+
+    /* ============================
+       FONT WEIGHTS
+    ============================ */
+    fontWeight: {
+      300: "var(--font-300)",
+      400: "var(--font-400)",
+      500: "var(--font-500)",
+      600: "var(--font-600)",
+      700: "var(--font-700)",
+    },
+
+    /* ============================
+       LINE HEIGHT
+    ============================ */
+    lineHeight: {
+      14: "var(--leading-14)",
+      17: "var(--leading-17)",
+      20: "var(--leading-20)",
+      23: "var(--leading-23)",
+      24: "var(--leading-24)",
+      25: "var(--leading-25)",
+      27: "var(--leading-27)",
+      30: "var(--leading-30)",
+      32: "var(--leading-32)",
+      35: "var(--leading-35)",
+      36: "var(--leading-36)",
+      37: "var(--leading-37)",
+      38: "var(--leading-38)",
+      40: "var(--leading-40)",
+      42: "var(--leading-42)",
+      44: "var(--leading-44)",
+      50: "var(--leading-50)",
+      52: "var(--leading-52)",
+      62: "var(--leading-62)",
+      68: "var(--leading-68)",
+    },
+
+    /* ============================
+       LETTER SPACING
+    ============================ */
+    letterSpacing: {
+      neg2: "var(--tracking-neg2)",
+      neg1: "var(--tracking-neg1)",
+      1: "var(--tracking-1)",
+      2: "var(--tracking-2)",
+      3: "var(--tracking-3)",
+      32: "var(--tracking-32)",
+    },
+
+    /* ============================
+       COLORS
+    ============================ */
+    colors: {
+      white: "var(--color-white)",
+      "white-smoke": "var(--color-white-smoke)",
+      "white-smoke-1": "var(--color-white-smoke-1)",
+      "white-smoke-2": "var(--color-white-smoke-2)",
+      "white-smoke-3": "var(--color-white-smoke-3)",
+      "white-smoke-4": "var(--color-white-smoke-4)",
+
+      "ghost-white": "var(--color-ghost-white)",
+      "ghost-white-1": "var(--color-ghost-white-1)",
+      "ghost-white-2": "var(--color-ghost-white-2)",
+
+      lavender: "var(--color-lavender)",
+      "lavender-1": "var(--color-lavender-1)",
+      "lavender-2": "var(--color-lavender-2)",
+
+      "old-lace": "var(--color-old-lace)",
+      linen: "var(--color-linen)",
+
+      gainsboro: "var(--color-gainsboro)",
+      "gainsboro-1": "var(--color-gainsboro-1)",
+
+      "light-gray": "var(--color-light-gray)",
+      "light-gray-1": "var(--color-light-gray-1)",
+      "light-gray-2": "var(--color-light-gray-2)",
+
+      pink: "var(--color-light-pink)",
+
+      wheat: "var(--color-wheat)",
+
+      "dark-gray": "var(--color-dark-gray)",
+      "dark-gray-1": "var(--color-dark-gray-1)",
+      "dark-gray-2": "var(--color-dark-gray-2)",
+      "dark-gray-3": "var(--color-dark-gray-3)",
+      "dark-gray-4": "var(--color-dark-gray-4)",
+      "dark-gray-5": "var(--color-dark-gray-5)",
+      "dark-gray-6": "var(--color-dark-gray-6)",
+      "dark-gray-7": "var(--color-dark-gray-7)",
+      "dark-gray-8": "var(--color-dark-gray-8)",
+      "dark-gray-9": "var(--color-dark-gray-9)",
+      "dark-gray-10": "var(--color-dark-gray-10)",
+
+      silver: "var(--color-silver)",
+      "silver-1": "var(--color-silver-1)",
+
+      cornflower: "var(--color-cornflower-blue)",
+
+      khaki: "var(--color-khaki)",
+      "khaki-1": "var(--color-khaki-1)",
+      "khaki-2": "var(--color-khaki-2)",
+
+      "hot-pink": "var(--color-hot-pink)",
+
+      "sky-blue": "var(--color-sky-blue)",
+      "sky-blue-1": "var(--color-sky-blue-1)",
+
+      slate: "var(--color-light-slate-gray)",
+
+      "light-green": "var(--color-light-green)",
+      "light-green-1": "var(--color-light-green-1)",
+      "light-green-2": "var(--color-light-green-2)",
+
+      purple: "var(--color-medium-purple)",
+      turquoise: "var(--color-turquoise)",
+
+      crimson: "var(--color-crimson)",
+      "crimson-1": "var(--color-crimson-1)",
+      "crimson-2": "var(--color-crimson-2)",
+      "crimson-3": "var(--color-crimson-3)",
+
+      lime: "var(--color-lime-green)",
+
+      orange: "var(--color-orange)",
+      "orange-1": "var(--color-orange-1)",
+      "orange-2": "var(--color-orange-2)",
+      "orange-3": "var(--color-orange-3)",
+
+      violet: "var(--color-blue-violet)",
+      "violet-1": "var(--color-blue-violet-1)",
+
+      gray: "var(--color-gray)",
+      "gray-1": "var(--color-gray-1)",
+      "gray-2": "var(--color-gray-2)",
+
+      "dim-gray": "var(--color-dim-gray)",
+      "dim-gray-1": "var(--color-dim-gray-1)",
+      "dim-gray-2": "var(--color-dim-gray-2)",
+      "dim-gray-3": "var(--color-dim-gray-3)",
+      "dim-gray-4": "var(--color-dim-gray-4)",
+      "dim-gray-5": "var(--color-dim-gray-5)",
+
+      sea: "var(--color-light-sea-green)",
+      turquoise2: "var(--color-dark-turquoise)",
+      "turquoise2-1": "var(--color-dark-turquoise-1)",
+
+      spring: "var(--color-spring-green)",
+      blue: "var(--color-medium-blue)",
+
+      charcoal: "var(--color-charcoal)",
+      "charcoal-1": "var(--color-charcoal-1)",
+      "charcoal-2": "var(--color-charcoal-2)",
+      "charcoal-3": "var(--color-charcoal-3)",
+
+      forest: "var(--color-forest-green)",
+      "dark-orange": "var(--color-dark-orange)",
+      "dark-red": "var(--color-dark-red)",
+      royal: "var(--color-royal-blue)",
+      slate2: "var(--color-dark-slate-gray)",
+
+      navy: "var(--color-navy)",
+      midnight: "var(--color-midnight-blue)",
+
+      black: "var(--color-black)",
+      "black-1": "var(--color-black-1)",
+      "black-2": "var(--color-black-2)",
+      "black-3": "var(--color-black-3)",
+      "black-4": "var(--color-black-4)",
     },
   },
-  plugins: [],
 };
+
+
+export const plugins = [];

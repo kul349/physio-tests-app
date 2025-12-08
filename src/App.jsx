@@ -1,12 +1,13 @@
 import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 import "./index.css";
+import AppRoutes from "./rotues";
 
 function App() {
   return (
-    <div className="bg-red-300 ">
-      <p className="text-xl font-bold ">hello world</p>
-      <p>hellow word i am here with someone to whom i can udnerstand </p>
-    </div>
+   <Router>
+    <AppRoutes/>
+   </Router>
   );
 }
 
