@@ -11,3 +11,65 @@
     animation: slideUp 1s ease-in-out infinite;
   }
   
+
+.animated-bg-section {
+  position: relative;
+  width: 100%;
+  height: 800px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.animated-bg-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://demo.casethemes.net/aramco/wp-content/uploads/2024/12/img-slide3-h1.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  animation: bgAnimation 20s linear infinite alternate;
+  filter: brightness(0.7);
+}
+
+/* Example animation: subtle zoom in/out */
+@keyframes bgAnimation {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    transform: scale(1.1) translateY(-20px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+}
+
+button {
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  background: #ff6b6b;
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+  margin-top: 20px;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #ff4757;
+}
