@@ -236,4 +236,6 @@ body {
   
   .capitalize { text-transform: capitalize; }
   .uppercase { text-transform: uppercase; }
-  
+  .fade-delay-0 { animation-delay: 0s; }
+.fade-delay-1 { animation-delay: 6s; }
+.fade-delay-2 { animation-delay: 12s; }

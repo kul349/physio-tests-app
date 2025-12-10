@@ -2,7 +2,18 @@
 export const content = ["./src/**/*.{js,jsx,ts,tsx,html}"];
 export const theme = {
   extend: {
-    
+    keyframes: {
+      slide: {
+        "0%": { opacity: "0", transform: "scale(1.2)" },
+        "10%": { opacity: "1", transform: "scale(1.15)" },
+        "60%": { opacity: "1", transform: "scale(1)" },
+        "70%": { opacity: "0", transform: "scale(1)" },
+        "100%": { opacity: "0", transform: "scale(1)" },
+      },
+    },
+    animation: {
+      slide: "slide 18s infinite",
+    },
     /* ============================
        FONT FAMILY
     ============================ */
