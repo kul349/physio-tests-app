@@ -47,7 +47,6 @@ const HomePage = () => {
 
   return (
     <>
-      {/* Slider Section */}
       <div className="relative w-full min-h-screen overflow-hidden md:h-screen px-4 md:px-8">
         {slides.map((slide, index) => (
           <div
@@ -59,14 +58,14 @@ const HomePage = () => {
             <div className="max-w-6xl mx-auto flex flex-col md:flex-row h-full">
               {/* Left Side */}
               <div
-                className="w-full md:w-1/2 flex items-center justify-center px-6 lg:px-8 py-12 md:py-20"
+                className="w-full md:w-1/2 flex items-center justify-center px-6 lg:px-24 py-12 md:py-0"
                 style={{ backgroundColor: slide.bgColor }}
               >
                 <div className="max-w-xl w-full">
                   <div className="text-white text-sm md:text-base font-medium tracking-[3px] uppercase mb-4">
                     {slide.label}
                   </div>
-                  <h1 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-normal leading-tight tracking-tight mb-6">
+                  <h1 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-normal   leading-tight tracking-tight mb-6">
                     {slide.title}
                   </h1>
                   <p className="font-roboto text-sm sm:text-white-smoke-1 md:text-lg font-light leading-relaxed text-white-smoke-1 mb-8">
@@ -106,7 +105,7 @@ const HomePage = () => {
               </div>
 
               {/* Right Side */}
-              <div className="w-full md:w-1/2 h-auto md:h-full bg-white relative overflow-hidden">
+              <div className="w-full md:w-1/2 h-64 md:h-full bg-white relative overflow-hidden">
                 <div
                   className={`absolute inset-0 bg-cover bg-center ${
                     index === 0
@@ -123,7 +122,6 @@ const HomePage = () => {
         ))}
       </div>
 
-      {/* Other Sections with consistent spacing */}
       <Information />
       <CommonConditionsSection />
       <DownloadSection />
