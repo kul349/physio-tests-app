@@ -4,6 +4,8 @@ import { MdOutlinePhoneInTalk } from "react-icons/md";
 import { AiOutlineClockCircle, AiOutlineMail } from "react-icons/ai";
 import { motion } from "framer-motion";
 import { IoSearchOutline } from "react-icons/io5";
+import { HiOutlineMenu } from "react-icons/hi";
+
 
 function Header() {
   // Bounce-like hover animation
@@ -39,9 +41,9 @@ function Header() {
             </div>
 
             {/* Right Section: Contact Info with bounce */}
-            <div className="flex flex-wrap justify-center md:justify-end items-center gap-x-6 gap-y-2">
+            <div className="flex flex-col sm:flex-row justify-center md:justify-end  items-center gap-x-6 gap-y-2 text-center sm:text-left">
               {/* Phone */}
-              <div className="flex flex-row items-center gap-2">
+              <div className="hidden sm:flex flex-row items-center gap-2">
                 <motion.div whileHover={bounceHover}>
                   <MdOutlinePhoneInTalk
                     className={`${iconBaseStyle} text-dim-gray-2`}
@@ -51,7 +53,7 @@ function Header() {
               </div>
 
               {/* Clock */}
-              <div className="flex flex-row items-center gap-2">
+              <div className="hidden md:flex flex-row items-center gap-2">
                 <motion.div whileHover={bounceHover}>
                   <AiOutlineClockCircle className={iconBaseStyle} />
                 </motion.div>
@@ -76,13 +78,15 @@ function Header() {
       </section>
 
       <section className="py-lg-2">
-        <div className="flex flex-row px-4 justify-between py-4">
+        <div className="flex flex-col md:flex-row px-4 justify-between items-center py-4 gap-4">
           <div>
-            <h2 className="text-[20px] text-dim-gray-5">PhysioTest</h2>
+            <h2 className="text-lg md:text-xl font-semibold text-dim-gray-5">
+              PhysioTest
+            </h2>
           </div>
           <div className="justify-center items-center">
             <nav>
-              <ul className="flex flex-row justify-between gap-8 space-x-11 uppercase tracking-1 text-12 font-bold text-charcoal-3">
+              <ul className="hidden md:flex flex-row gap-8 uppercase tracking-1 text-12 font-bold text-charcoal-3">
                 <li>
                   <a href="/">
                     <span>home</span>
@@ -106,8 +110,12 @@ function Header() {
               </ul>
             </nav>
           </div>
-          <div className="flex justify-start">
-            <IoSearchOutline className="text-2xl" />
+          <div className="flex items-center gap-4">
+            {/* Mobile menu */}
+            <HiOutlineMenu className="text-2xl md:hidden cursor-pointer" />
+
+            {/* Search */}
+            <IoSearchOutline className="text-2xl hidden md:block" />
           </div>
         </div>
       </section>
