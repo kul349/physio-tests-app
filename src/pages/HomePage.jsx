@@ -28,7 +28,7 @@ const HomePage = () => {
     },
     {
       id: 3,
-      image: "/img-ss2-h1.webp",
+      image: "/scroll2.webp",
       label: "BEST PLACE FOR REHABILITATION",
       title: "Shoulder Pain Relief With The Best Therapists",
       description:
