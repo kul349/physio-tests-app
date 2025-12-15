@@ -47,22 +47,22 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="relative w-full min-h-screen overflow-hidden md:h-screen">
+      <div className="relative w-full min-h-screen overflow-hidden md:h-screen px-2 md:px-4">
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            className={`absolute inset-0 mx-6 md:mx-8 rounded-3xl overflow-hidden transition-opacity duration-1000 ${
+            className={`absolute inset-0 rounded-3xl overflow-hidden transition-opacity duration-1000 ${
               currentSlide === index ? "opacity-100 z-10" : "opacity-0 z-0"
             }`}
           >
-            <div className="flex flex-col md:flex-row h-full">
+            <div className="flex flex-col md:flex-row h-full  mx-auto">
               {/* Left Side */}
               <div
                 className="w-full md:w-1/2 flex items-center justify-center px-6 lg:px-24 py-12 md:py-0"
                 style={{ backgroundColor: slide.bgColor }}
               >
                 <div className="max-w-xl w-full">
-                  <div className="text-white text-sm md:text-base font-medium tracking-[3px] uppercase mb-4">
+                  <div className="text-white text-sm md:text-white-smoke-1 font-medium tracking-[3px] uppercase mb-4">
                     {slide.label}
                   </div>
                   <h1 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-normal leading-tight tracking-tight mb-6">

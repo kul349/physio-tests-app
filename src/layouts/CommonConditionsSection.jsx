@@ -1,6 +1,6 @@
 import ConditionCard from "./ConditionCard";
 const CommonConditionsSection = () => (
-  <section className="py-20 bg-gainsboro-1 mx-8 rounded-3xl mt-10 " id="help">
+  <section className="py-20 bg-gainsboro-1  rounded-3xl mt-10 " id="help">
     <div className="max-w-7xl mx-auto px-6 lg:px-8">
       <div className="text-center mb-12">
         <h2 className="text-4xl  text-charcoal-3 mb-4 font-public ">

@@ -3,7 +3,7 @@ import React from 'react'
 function DownloadSection() {
   return (
     <section
-      className="py-24 bg-white-smoke-2 mt-10 mx-8 rounded-3xl text-center"
+      className="py-24 bg-white-smoke-2 mt-10  rounded-3xl text-center"
       id="guide "
     >
       <div className="mx-auto max-w-5xl px-6 lg:px-8 text-charcoal-3">
