@@ -5,9 +5,10 @@ function Information() {
   return (
     <section className="py-12 md:py-20 bg-white-smoke-2 mt-6 md:mt-10 rounded-3xl mx-4 md:mx-8 ">
       <div className="max-w-6xl mx-auto px-6 lg:px-8 text-center">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-charcoal-3 leading-snug  tracking-1 mb-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-charcoal-3 leading-snug tracking-wide mb-4">
           What Exactly Happens During a Physio Test?
         </h2>
+
         <p className="text-base sm:text-lg md:text-xl text-dim-gray-4 max-w-3xl mx-auto mb-6 md:mb-8">
           If you're facing a physical assessment and feel anxious, you're not
           alone. Our site breaks down common physiotherapy tests into simple,
