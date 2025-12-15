@@ -4,7 +4,7 @@ import { GoArrowRight } from "react-icons/go";
 function Information() {
   return (
     <section className="py-12 md:py-20 bg-white-smoke-2 mt-6 md:mt-10 rounded-3xl px-4 md:px-8">
-      <div className="max-w-6xl mx-auto  text-center">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8 text-center">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-charcoal-3 leading-snug tracking-wide mb-4">
           What Exactly Happens During a Physio Test?
         </h2>
