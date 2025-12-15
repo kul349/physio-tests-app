@@ -169,7 +169,16 @@ const tailwindConfig = {
     },
   },
   plugins: [],
-  safelist: ["text-15", "leading-36", "tracking-1"],
+  safelist: [
+    "text-2xl",
+    "text-3xl",
+    "text-4xl",
+    "leading-snug",
+    "tracking-1",
+    "font-bold",
+    "text-white",
+    "bg-white-smoke",
+  ],
 };
 
 export default tailwindConfig;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { GoArrowRight } from "react-icons/go";
 import Information from "../layouts/Information";
 import CommonConditionsSection from "../layouts/CommonConditionsSection";
-import DownloadSection from "../layouts/DownloadSection"
+import DownloadSection from "../layouts/DownloadSection";
 
 const HomePage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -43,13 +43,11 @@ const HomePage = () => {
     }, 6000);
 
     return () => clearInterval(timer);
-  }, [slides.length]);
+  }, []);
 
- 
   return (
     <>
-      <div className="relative w-full min-h-screen overflow-hidden md:h-screen ">
-        {/* Slides */}
+      <div className="relative w-full min-h-screen overflow-hidden md:h-screen">
         {slides.map((slide, index) => (
           <div
             key={slide.id}
@@ -58,81 +56,37 @@ const HomePage = () => {
             }`}
           >
             <div className="flex flex-col md:flex-row h-full">
-              {/* Left Side - Content (50%) */}
+              {/* Left Side */}
               <div
-                className="w-full md:w-1/2 flex  items-center justify-center px-6 md:px-6 lg:px-24 py-12 md:py-0"
+                className="w-full md:w-1/2 flex items-center justify-center px-6 lg:px-24 py-12 md:py-0"
                 style={{ backgroundColor: slide.bgColor }}
               >
                 <div className="max-w-xl w-full">
-                  {/* Label */}
-                  <div
-                    className={`text-white text-sm md:text-base font-medium tracking-[3px] uppercase mb-4 transition-all duration-700 ${
-                      currentSlide === index
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-8"
-                    }`}
-                    style={{
-                      transitionDelay: currentSlide === index ? "300ms" : "0ms",
-                    }}
-                  >
+                  <div className="text-white text-sm md:text-base font-medium tracking-[3px] uppercase mb-4">
                     {slide.label}
                   </div>
-
-                  {/* Title */}
-                  <h1
-                    className={`text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-normal leading-tight tracking-tight mb-6 transition-all duration-700 ${
-                      currentSlide === index
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-10"
-                    }`}
-                    style={{
-                      transitionDelay: currentSlide === index ? "500ms" : "0ms",
-                    }}
-                  >
+                  <h1 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-normal leading-tight tracking-tight mb-6">
                     {slide.title}
                   </h1>
-
-                  {/* Description */}
-                  <p
-                    className={`text-white/90 text-white-smoke text-300 font-roboto  text-sm sm:text-base md:text-lg font-light leading-relaxed mb-8 transition-all duration-700 ${
-                      currentSlide === index
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-8"
-                    }`}
-                    style={{
-                      transitionDelay: currentSlide === index ? "700ms" : "0ms",
-                    }}
-                  >
+                  <p className="text-white/90 font-roboto text-sm sm:text-base md:text-lg font-light leading-relaxed mb-8">
                     {slide.description}
                   </p>
 
-                  {/* Buttons */}
-                  <div
-                    className={`flex flex-col sm:flex-row items-start gap-6 transition-all duration-700 ${
-                      currentSlide === index
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-8"
-                    }`}
-                    style={{
-                      transitionDelay: currentSlide === index ? "900ms" : "0ms",
-                    }}
-                  >
-                    {/* Primary Button */}
+                  <div className="flex flex-col sm:flex-row items-start gap-6">
                     <a
                       href="#services"
-                      className="inline-flex items-center gap-3 px-8 py-4 bg-white text-dim-gray-5 hover:bg-gray-100 font-medium tracking-wide rounded-full transition-all duration-300 hover:translate-x-1 group"
+                      className="inline-flex items-center gap-3 px-8 py-4 bg-white text-dim-gray-5 hover:bg-gray-100 font-medium tracking-wide rounded-full transition-all duration-300"
                     >
                       <span>GET TEST</span>
                       <GoArrowRight />
                     </a>
 
-                    {/* Video Button */}
                     <a
                       href="#video"
-                      className="inline-flex items-center gap-4 text-white transition-all duration-300 hover:opacity-80 group"
+                      className="inline-flex items-center gap-4 text-white"
                     >
                       <div className="relative w-14 h-14 flex items-center justify-center">
-                        <div className="absolute inset-0 bg-white/15 backdrop-blur-sm rounded-full transition-all duration-300 group-hover:bg-white/25 group-hover:scale-110" />
+                        <div className="absolute inset-0 bg-white/15 backdrop-blur-sm rounded-full transition-all duration-300" />
                         <div className="absolute inset-0 border-2 border-white/30 rounded-full animate-pulse-ring" />
                         <svg
                           width="14"
@@ -150,7 +104,7 @@ const HomePage = () => {
                 </div>
               </div>
 
-              {/* Right Side - Image with Ken Burns (50%) */}
+              {/* Right Side */}
               <div className="w-full md:w-1/2 h-64 md:h-full bg-white relative overflow-hidden">
                 <div
                   className={`absolute inset-0 bg-cover bg-center ${
@@ -160,18 +114,16 @@ const HomePage = () => {
                       ? "animate-kenburns-alt"
                       : "animate-kenburns-zoom"
                   }`}
-                  style={{
-                    backgroundImage: `url(${slide.image})`,
-                  }}
+                  style={{ backgroundImage: `url(${slide.image})` }}
                 />
               </div>
             </div>
           </div>
         ))}
       </div>
+
       <Information />
       <CommonConditionsSection />
-
       <DownloadSection />
     </>
   );
