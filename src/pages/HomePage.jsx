@@ -68,7 +68,7 @@ const HomePage = () => {
                   <h1 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-normal   leading-tight tracking-tight mb-6">
                     {slide.title}
                   </h1>
-                  <p className="font-roboto text-sm sm:text-base md:text-lg font-light leading-relaxed text-white-smoke-1mb-8">
+                  <p className="font-roboto text-sm sm:text-white-smoke-1 md:text-lg font-light leading-relaxed text-white-smoke-1 mb-8">
                     {slide.description}
                   </p>
 
