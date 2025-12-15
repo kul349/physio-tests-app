@@ -63,7 +63,7 @@ const HomePage = () => {
                 className="w-full md:w-1/2 flex  items-center justify-center px-6 md:px-6 lg:px-24 py-12 md:py-0"
                 style={{ backgroundColor: slide.bgColor }}
               >
-                <div className="max-w-xl">
+                <div className="max-w-xl w-full">
                   {/* Label */}
                   <div
                     className={`text-white text-sm md:text-base font-medium tracking-[3px] uppercase mb-4 transition-all duration-700 ${
@@ -80,7 +80,7 @@ const HomePage = () => {
 
                   {/* Title */}
                   <h1
-                    className={`text-white text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-normal leading-tight tracking-tight mb-6 transition-all duration-700 ${
+                    className={`text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-normal leading-tight tracking-tight mb-6 transition-all duration-700 ${
                       currentSlide === index
                         ? "opacity-100 translate-y-0"
                         : "opacity-0 translate-y-10"
@@ -94,7 +94,7 @@ const HomePage = () => {
 
                   {/* Description */}
                   <p
-                    className={`text-white/90 text-white-smoke text-300 font-roboto  md:text-lg font-light leading-relaxed mb-8 transition-all duration-700 ${
+                    className={`text-white/90 text-white-smoke text-300 font-roboto  text-sm sm:text-base md:text-lg font-light leading-relaxed mb-8 transition-all duration-700 ${
                       currentSlide === index
                         ? "opacity-100 translate-y-0"
                         : "opacity-0 translate-y-8"
@@ -151,7 +151,7 @@ const HomePage = () => {
               </div>
 
               {/* Right Side - Image with Ken Burns (50%) */}
-              <div className="w-1/2 bg-white relative overflow-hidden">
+              <div className="w-full md:w-1/2 h-64 md:h-full bg-white relative overflow-hidden">
                 <div
                   className={`absolute inset-0 bg-cover bg-center ${
                     index === 0
@@ -172,7 +172,7 @@ const HomePage = () => {
       <Information />
       <CommonConditionsSection />
 
-      <DownloadSection/>
+      <DownloadSection />
     </>
   );
 };
