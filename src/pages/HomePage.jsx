@@ -28,7 +28,7 @@ const HomePage = () => {
     },
     {
       id: 3,
-      image: "/public/img-ss2-h1.webp",
+      image: "/img-ss2-h1.webp",
       label: "BEST PLACE FOR REHABILITATION",
       title: "Shoulder Pain Relief With The Best Therapists",
       description:
@@ -48,7 +48,7 @@ const HomePage = () => {
  
   return (
     <>
-      <div className="relative w-full h-screen overflow-hidden ">
+      <div className="relative w-full min-h-screen overflow-hidden md:h-screen ">
         {/* Slides */}
         {slides.map((slide, index) => (
           <div
@@ -57,10 +57,10 @@ const HomePage = () => {
               currentSlide === index ? "opacity-100 z-10" : "opacity-0 z-0"
             }`}
           >
-            <div className="flex h-full">
+            <div className="flex flex-col md:flex-row h-full">
               {/* Left Side - Content (50%) */}
               <div
-                className="w-1/2 flex items-center justify-center px-8 md:px-16 lg:px-24"
+                className="w-full md:w-1/2 flex  items-center justify-center px-6 md:px-6 lg:px-24 py-12 md:py-0"
                 style={{ backgroundColor: slide.bgColor }}
               >
                 <div className="max-w-xl">
