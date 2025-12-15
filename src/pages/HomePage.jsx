@@ -47,15 +47,15 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="relative w-full min-h-screen overflow-hidden md:h-screen px-4 md:px-8">
+      <div className="relative w-full min-h-screen overflow-hidden md:h-screen">
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            className={`absolute inset-0 rounded-3xl overflow-hidden transition-opacity duration-1000 ${
+            className={`absolute inset-0 mx-6 md:mx-8 rounded-3xl overflow-hidden transition-opacity duration-1000 ${
               currentSlide === index ? "opacity-100 z-10" : "opacity-0 z-0"
             }`}
           >
-            <div className="max-w-6xl mx-auto flex flex-col md:flex-row h-full">
+            <div className="flex flex-col md:flex-row h-full">
               {/* Left Side */}
               <div
                 className="w-full md:w-1/2 flex items-center justify-center px-6 lg:px-24 py-12 md:py-0"
@@ -65,10 +65,10 @@ const HomePage = () => {
                   <div className="text-white text-sm md:text-base font-medium tracking-[3px] uppercase mb-4">
                     {slide.label}
                   </div>
-                  <h1 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-normal   leading-tight tracking-tight mb-6">
+                  <h1 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-normal leading-tight tracking-tight mb-6">
                     {slide.title}
                   </h1>
-                  <p className="font-roboto text-sm sm:text-white-smoke-1 md:text-lg font-light leading-relaxed text-white-smoke-1 mb-8">
+                  <p className="text-white/90 font-roboto text-sm sm:text-base md:text-lg font-light leading-relaxed mb-8">
                     {slide.description}
                   </p>
 
