@@ -3,6 +3,16 @@ import { GoArrowRight } from "react-icons/go";
 import Information from "../layouts/Information";
 import CommonConditionsSection from "../layouts/CommonConditionsSection";
 import DownloadSection from "../layouts/DownloadSection";
+import { Link } from "react-router-dom";
+
+<Link
+  to="/page/test-details"
+  className="inline-flex items-center gap-3 px-8 py-4 bg-white text-dim-gray-5 hover:bg-gray-100 font-medium tracking-wide rounded-full transition-all duration-300"
+>
+  <span>GET TEST</span>
+  <GoArrowRight />
+</Link>;
+
 
 const HomePage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -73,16 +83,18 @@ const HomePage = () => {
                   </p>
 
                   <div className="flex flex-col sm:flex-row items-start gap-6">
-                    <a
-                      href="#services"
+                    <Link
+                      to="/page/test-details"
                       className="inline-flex items-center gap-3 px-8 py-4 bg-white text-dim-gray-5 hover:bg-gray-100 font-medium tracking-wide rounded-full transition-all duration-300"
                     >
                       <span>GET TEST</span>
                       <GoArrowRight />
-                    </a>
+                    </Link>
 
                     <a
-                      href="#video"
+                      href="https://www.youtube.com/watch?v=JFMhJBCfHbE"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-4 text-white"
                     >
                       <div className="relative w-14 h-14 flex items-center justify-center">

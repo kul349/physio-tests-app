@@ -2,6 +2,8 @@ import React from "react";
 import { Route,Routes } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import HomePage from "../pages/HomePage";
+import TestDetailPage from "../pages/TestDetailPage";
+import AssessmentStagesPage from "../pages/AssessmentStagesPage";
 
 
 function AppRoutes(){
@@ -16,6 +18,22 @@ function AppRoutes(){
           }
         />
 
+        <Route
+          path="/page/test-details"
+          element={
+            <MainLayout>
+              <TestDetailPage />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/page/assesmentstage"
+          element={
+            <MainLayout>
+              <AssessmentStagesPage/>
+            </MainLayout>
+          }
+        />
         <Route
           path="*"
           element={
@@ -33,7 +51,6 @@ function AppRoutes(){
             </MainLayout>
           }
         />
-
       </Routes>
     );
 }
