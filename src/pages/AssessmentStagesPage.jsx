@@ -18,7 +18,7 @@ const stages = [
     step: "Diagnosis & Plan",
     description:
       "Interpret test results and create a personalized rehabilitation or exercise plan to guide recovery and improve physical function.",
-    image: "/diagnosis-test.webp",
+    image: "/diagonsis-test.webp",
   },
   {
     step: "Follow-Up & Exercises",
