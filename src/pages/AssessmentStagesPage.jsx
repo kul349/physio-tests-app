@@ -57,7 +57,6 @@ const AssessmentStagesPage = () => {
                 index % 2 === 1 ? "md:flex-row-reverse" : ""
               }`}
             >
-
               {/* Text content */}
               <div className="flex-1">
                 <h2 className="text-2xl md:text-3xl font-semibold text-charcoal-1 mb-3">
@@ -90,7 +89,7 @@ const AssessmentStagesPage = () => {
               Watch a Physiotherapy Demonstration
             </h2>
             <div
-              className="relative w-full max-w-4xl mx-auto"
+              className="relative w-full max-w-6xl"
               style={{ paddingTop: "40%" }}
             >
               <iframe
