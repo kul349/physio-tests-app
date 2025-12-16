@@ -21,31 +21,32 @@ const HomePage = () => {
     {
       id: 1,
       image: "/img-service2.webp",
-      label: "BEST PLACE FOR REHABILITATION",
-      title: "Therapeutic Massage Healing Your Body & Achieve Wellbeing",
+      label: "LEARN PHYSIOTHERAPY TESTS",
+      title: "Understand and Perform Standardized Assessment Tests",
       description:
-        "We encourage you not to wait until after surgery to start physical therapy or rehabilitation! Research confirms pre-habilitation is extremely important for attaining successful outcomes.",
+        "Explore detailed physiotherapy assessment tests designed for students and professionals to evaluate musculoskeletal health efficiently and accurately.",
       bgColor: "#7B9682",
     },
     {
       id: 2,
       image: "/img-slider-1.webp",
-      label: "BEST PLACE FOR REHABILITATION",
-      title: "Sports Injury Recovery Never That Effective Before",
+      label: "LEARN PHYSIOTHERAPY TESTS",
+      title: "Step-by-Step Guidance for Common Clinical Tests",
       description:
-        "We encourage you not to wait until after surgery to start physical therapy or rehabilitation! Research confirms pre-habilitation is extremely important for attaining successful outcomes.",
+        "Gain practical knowledge of widely used physiotherapy tests for joints, muscles, and posture, with clear instructions to help you learn and practice safely.",
       bgColor: "#7B9682",
     },
     {
       id: 3,
       image: "/scroll2.webp",
-      label: "BEST PLACE FOR REHABILITATION",
-      title: "Shoulder Pain Relief With The Best Therapists",
+      label: "LEARN PHYSIOTHERAPY TESTS",
+      title: "Improve Your Assessment Skills with Interactive Content",
       description:
-        "We encourage you not to wait until after surgery to start physical therapy or rehabilitation! Research confirms pre-habilitation is extremely important for attaining successful outcomes.",
+        "Enhance your understanding of physiotherapy assessment through educational videos, step-by-step instructions, and visual demonstrations of each test.",
       bgColor: "#7B9682",
     },
   ];
+  
 
   useEffect(() => {
     const timer = setInterval(() => {

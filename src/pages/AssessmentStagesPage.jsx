@@ -7,28 +7,28 @@ const stages = [
     description:
       "The therapist asks about your symptoms, medical history, lifestyle, and goals for therapy. This helps understand the root cause and sets expectations.",
     icon: "📝",
-    image: "/images/initial-evaluation.webp", // optional
+    image: "/initial-evaluation.webp", // optional
   },
   {
     step: "Physical Tests",
     description:
       "Range of motion, strength, flexibility, posture, and neurological tests are performed to assess your current condition and identify limitations.",
     icon: "💪",
-    image: "/images/physical-tests.webp",
+    image: "/physical-test.webp",
   },
   {
     step: "Diagnosis & Plan",
     description:
       "The therapist interprets test results, identifies problems, and creates a personalized rehabilitation plan including exercises and treatment frequency.",
     icon: "📊",
-    image: "/images/diagnosis-plan.webp",
+    image: "/diagonsis-test.webp",
   },
   {
     step: "Follow-Up & Exercises",
     description:
       "Instructions for home exercises, follow-up sessions, and progress monitoring ensure you recover safely and efficiently.",
     icon: "🏃",
-    image: "/follow-up.jpg",
+    image: "/follow-up1.webp",
   },
 ];
 
@@ -82,15 +82,14 @@ const AssessmentStagesPage = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Watch a Physiotherapy Demonstration
           </h2>
-          <div className="aspect-w-16 aspect-h-12 h-40  max-w-4xl mx-auto">
+          <div className="aspect-w-16 aspect-h-9 max-w-4xl mx-auto">
             <iframe
               src="https://www.youtube.com/embed/JFMhJBCfHbE"
               title="Physiotherapy Education Video"
-              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-              className="w-full h-full rounded-xl shadow-lg"
-            ></iframe>
+              className="w-full h-full rounded-xl shadow-lg border-0"
+            />
           </div>
         </motion.div>
       </div>
