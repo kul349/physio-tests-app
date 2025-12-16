@@ -27,10 +27,10 @@ function AppRoutes(){
           }
         />
         <Route
-          path="/page/assesmentstage"
+          path="/page/assesment-stage"
           element={
             <MainLayout>
-              <AssessmentStagesPage/>
+              <AssessmentStagesPage />
             </MainLayout>
           }
         />

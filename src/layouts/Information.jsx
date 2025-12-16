@@ -16,7 +16,7 @@ function Information() {
           easy-to-understand steps so you know exactly what to expect.
         </p>
         <Link
-          to="/page/assesmentstage"
+          to="/page/assesment-stage"
           className="inline-flex items-center gap-3 px-6 md:px-8 py-3 text-sm sm:text-base md:text-lg font-bold uppercase tracking-wider border-2 border-dark-gray-9 text-dark-gray-9 rounded-full  transition duration-300  hover:text-white hover:bg-dark-gray-9"
         >
           See the Assessment Stages
