@@ -8,7 +8,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-dark-gray-5 mt-12 text-white-smoke-1 px-4 md:px-8 py-12 ">
+    <footer className="bg-dark-gray-5 mt-12 text-white-smoke-1 px-4 md:px-8 py-12">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Logo / Branding */}
         <div className="flex flex-col items-start space-y-4">
@@ -39,7 +39,7 @@ const Footer = () => {
           </a>
         </div>
 
-        {/* Social / Contact */}
+        {/* Social / Contact & SEO */}
         <div className="flex flex-col space-y-4">
           <h3 className="font-semibold text-lg mb-2">Follow Us</h3>
           <div className="flex space-x-4">
@@ -56,10 +56,25 @@ const Footer = () => {
               <FaLinkedinIn />
             </a>
           </div>
+
           <p className="text-gray-400 text-sm mt-4">
             &copy; {new Date().getFullYear()} Physio Tests App. All rights
             reserved.
           </p>
+
+          {/* SEO Content */}
+          <div className="mt-6 text-gray-400 text-sm space-y-2">
+            <h2 className="font-semibold text-lg">About Physio Tests App</h2>
+            <p>
+              Physio Tests App is a web-based application that helps
+              physiotherapists and physical therapy students quickly access
+              standardized physiotherapy and orthopedic assessment tests.
+            </p>
+            <p>
+              The app includes commonly used clinical tests for shoulder, knee,
+              ankle, spine, and other musculoskeletal assessments.
+            </p>
+          </div>
         </div>
       </div>
     </footer>

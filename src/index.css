@@ -241,18 +241,3 @@ body {
 .fade-delay-2 { animation-delay: 12s; }
 
 
-#seo-content {
-   max-width: 900px;
-   margin: 1.5rem auto;
-   padding: 0 1rem;
-   font-size: 0.95rem;
-   line-height: 1.6;
-   color: #475569;
- }
- 
- #seo-content h1 {
-   font-size: 1.4rem;
-   margin-bottom: 0.5rem;
-   font-weight: 600;
- }
- 
