@@ -4,7 +4,7 @@ import { AiOutlineMail, AiOutlineClockCircle } from "react-icons/ai";
 import { motion } from "framer-motion";
 import { IoSearchOutline } from "react-icons/io5";
 import { HiOutlineMenu } from "react-icons/hi";
-
+ import { Link } from "react-router-dom";
 function Header() {
   const bounceHover = {
     y: -8,
@@ -69,24 +69,15 @@ function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex flex-row gap-8 uppercase tracking-1 text-12 font-bold text-charcoal-3">
-            <a href="/">Home</a>
-            <a href="/pages">Pages</a>
+            <Link to="/">Home</Link>
+            <Link to="/page/test-details">Tests</Link>
+            <Link to="/page/assesment-stage">Assessment</Link>
+
             <a href="/blog">Blog</a>
             {/* Removed Case Studies */}
           </nav>
 
-          {/* Search + Mobile Menu */}
           <div className="flex items-center gap-4">
-            {/* Long Search Bar for Desktop */}
-            <div className="hidden md:flex items-center border border-gray-300 rounded-full px-3 py-1 w-64 focus-within:ring-2 focus-within:ring-indigo-500">
-              <IoSearchOutline className="text-gray-500 mr-2" />
-              <input
-                type="text"
-                placeholder="Search tests, guides, videos..."
-                className="flex-1 outline-none text-sm text-gray-700"
-              />
-            </div>
-
             {/* Mobile Menu */}
             <HiOutlineMenu className="text-2xl md:hidden cursor-pointer" />
           </div>

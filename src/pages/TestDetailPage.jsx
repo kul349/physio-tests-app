@@ -21,7 +21,7 @@ export default function TestDetailPage() {
           placeholder="Search test name..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full sm:w-2/4 p-3 rounded-lg border border-gray-300 text-base focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-full sm:w-2/4 p-3 rounded-lg border border-dim-gray-5 text-base focus:outline-none focus:ring-2 focus:ring-silver-1"
         />
       </div>
 
@@ -41,13 +41,13 @@ export default function TestDetailPage() {
             <p className="text-gray-800 text-base">
               <strong>Purpose:</strong> {test.purpose}
             </p>
-            <p className="text-gray-700 text-sm">
+            <p className="text-gray-700 text-base">
               <strong>Starting position:</strong> {test.starting_position}
             </p>
-            <p className="text-gray-700 text-sm">
+            <p className="text-gray-700 text-base">
               <strong>Grading / Notes:</strong> {test.grading_or_notes}
             </p>
-            <p className="text-gray-700 text-sm">
+            <p className="text-gray-700 text-base">
               <strong>Procedure:</strong> {test.procedure}
             </p>
           </div>
