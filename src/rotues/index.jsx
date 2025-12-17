@@ -1,5 +1,6 @@
 import React from "react";
-import { Route,Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import MainLayout from "../layouts/MainLayout";
 import HomePage from "../pages/HomePage";
 import TestDetailPage from "../pages/TestDetailPage";
@@ -7,6 +8,17 @@ import AssessmentStagesPage from "../pages/AssessmentStagesPage";
 
 
 function AppRoutes(){
+  const location = useLocation();
+
+  useEffect(() => {
+    // Send page view to Google Analytics
+    if (window.gtag) {
+      window.gtag("config", "G-RNMBZBPMKX", {
+        page_path: location.pathname,
+        page_title: document.title,
+      });
+    }
+  }, [location]);
     return (
       <Routes>
         <Route
