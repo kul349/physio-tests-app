@@ -5,6 +5,8 @@ import MainLayout from "../layouts/MainLayout";
 import HomePage from "../pages/HomePage";
 import TestDetailPage from "../pages/TestDetailPage";
 import AssessmentStagesPage from "../pages/AssessmentStagesPage";
+import BlogPage from "../pages/BlogPage";
+import BlogDetails from "../layouts/Blogdetails";
 
 function AppRoutes() {
   const location = useLocation();
@@ -48,6 +50,22 @@ function AppRoutes() {
         }
       />
 
+      <Route
+        path="/blog/:slug"
+        element={
+          <MainLayout>
+            <BlogDetails />
+          </MainLayout>
+        }
+      />
+      <Route
+        path="/page/blog"
+        element={
+          <MainLayout>
+            <BlogPage />
+          </MainLayout>
+        }
+      />
       <Route
         path="*"
         element={

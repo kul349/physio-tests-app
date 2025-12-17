@@ -65,7 +65,7 @@ function Header() {
             <Link to="/">Home</Link>
             <Link to="/page/test-details">Tests</Link>
             <Link to="/page/assesment-stage">Assessment</Link>
-            <a href="/blog">Blog</a>
+            <Link to="/page/blog">Blog</Link>
           </nav>
 
           {/* Mobile Menu Icon */}
