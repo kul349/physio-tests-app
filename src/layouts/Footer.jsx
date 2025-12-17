@@ -23,17 +23,17 @@ const Footer = () => {
         <div className="flex flex-col space-y-2">
           <h3 className="font-semibold text-lg mb-2">Quick Links</h3>
           <a
-            href="#services"
-            className="hover:text-dim-gray-5 transition-colors"
+            href="https://www.youtube.com/watch?v=JFMhJBCfHbE"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-4  hover:text-dim-gray-5 transition-colors"
+            aria-label="Watch the Physiotherapy Education video"
           >
             Get Test
           </a>
-          <a href="#video" className="hover:text-dim-gray-5 transition-colors">
-            Test Video
-          </a>
-          <a href="#help" className="hover:text-dim-gray-5 transition-colors">
-            Common Assessments
-          </a>
+
+          <Link to="/page/assesment-stage">Common Assessments</Link>
+
           <a href="#guide" className="hover:text-dim-gray-5 transition-colors">
             Download Guide
           </a>
@@ -43,17 +43,29 @@ const Footer = () => {
         <div className="flex flex-col space-y-4">
           <h3 className="font-semibold text-lg mb-2">Follow Us</h3>
           <div className="flex space-x-4">
-            <a href="#facebook" className="hover:text-dim-gray-5 transition-colors">
-              <FaFacebookF  className="sr-only"/>
+            <a
+              href="#facebook"
+              className="hover:text-dim-gray-5 transition-colors"
+            >
+              <FaFacebookF className="sr-only" />
             </a>
-            <a href="#twitter" className="hover:text-dim-gray-5 transition-colors">
+            <a
+              href="#twitter"
+              className="hover:text-dim-gray-5 transition-colors"
+            >
               <FaTwitter className="sr-only" />
             </a>
-            <a href="#instagram" className="hover:text-dim-gray-5 transition-colors">
-              <FaInstagram className="sr-only"/>
+            <a
+              href="#instagram"
+              className="hover:text-dim-gray-5 transition-colors"
+            >
+              <FaInstagram className="sr-only" />
             </a>
-            <a href="#linkdin" className="hover:text-dim-gray-5 transition-colors">
-              <FaLinkedinIn className="sr-only"/>
+            <a
+              href="#linkdin"
+              className="hover:text-dim-gray-5 transition-colors"
+            >
+              <FaLinkedinIn className="sr-only" />
             </a>
           </div>
 

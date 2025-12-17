@@ -122,9 +122,9 @@ function Header() {
                   >
                     Assessment
                   </Link>
-                  <a href="/blog" onClick={() => setMenuOpen(false)}>
+                  <Link to="/page/blog" onClick={() => setMenuOpen(false)}>
                     Blog
-                  </a>
+                  </Link>
                 </nav>
               </motion.aside>
             </>
