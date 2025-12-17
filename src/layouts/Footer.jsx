@@ -23,6 +23,13 @@ const Footer = () => {
         {/* Navigation Links */}
         <div className="flex flex-col space-y-2">
           <h3 className="font-semibold text-lg mb-2">Quick Links</h3>
+          <Link
+            to="/page/test-details"
+            className="hover:text-dim-gray-5 transition-colors"
+          >
+           Get Tests
+          </Link>
+
           <a
             href="https://www.youtube.com/watch?v=JFMhJBCfHbE"
             target="_blank"
@@ -30,10 +37,15 @@ const Footer = () => {
             className="inline-flex items-center gap-4  hover:text-dim-gray-5 transition-colors"
             aria-label="Watch the Physiotherapy Education video"
           >
-            Get Test
+            Test video
           </a>
 
-          <Link to="/page/assesment-stage">Common Assessments</Link>
+          <Link
+            to="/page/assesment-stage"
+            className="hover:text-dim-gray-5 transition-colors"
+          >
+            Common Assessments
+          </Link>
 
           <a href="#guide" className="hover:text-dim-gray-5 transition-colors">
             Download Guide
