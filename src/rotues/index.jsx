@@ -10,14 +10,15 @@ function AppRoutes() {
   const location = useLocation();
 
   useEffect(() => {
-    // Send page view to Google Analytics
+    // Send page view to Google Analytics when route changes
     if (window.gtag) {
-      window.gtag("config", "G-RNMBZBPMKX", {
+      window.gtag("event", "page_view", {
         page_path: location.pathname,
         page_title: document.title,
       });
     }
   }, [location]);
+
   return (
     <Routes>
       <Route
@@ -37,6 +38,7 @@ function AppRoutes() {
           </MainLayout>
         }
       />
+
       <Route
         path="/page/assesment-stage"
         element={
@@ -45,6 +47,7 @@ function AppRoutes() {
           </MainLayout>
         }
       />
+
       <Route
         path="*"
         element={
