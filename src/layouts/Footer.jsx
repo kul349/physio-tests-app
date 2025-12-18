@@ -41,7 +41,7 @@ const Footer = () => {
           </a>
 
           <Link
-            to="/page/assesment-stage"
+            to="/page/assessment-stage"
             className="hover:text-dim-gray-5 transition-colors"
           >
             Common Assessments

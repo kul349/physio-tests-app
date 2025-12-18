@@ -64,7 +64,7 @@ function Header() {
           <nav className="hidden md:flex gap-8 uppercase text-12 font-bold text-charcoal-3">
             <Link to="/">Home</Link>
             <Link to="/page/test-details">Tests</Link>
-            <Link to="/page/assesment-stage">Assessment</Link>
+            <Link to="/page/assessment-stage">Assessment</Link>
             <Link to="/page/blog">Blog</Link>
           </nav>
 
@@ -117,7 +117,7 @@ function Header() {
                     Tests
                   </Link>
                   <Link
-                    to="/page/assesment-stage"
+                    to="/page/assessment-stage"
                     onClick={() => setMenuOpen(false)}
                   >
                     Assessment

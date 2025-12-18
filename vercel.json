@@ -6,3 +6,12 @@
         }
     ]
 }
+{
+    "redirects": [
+        {
+            "source": "/page/assesment-stage",
+            "destination": "/page/assessment-stage",
+            "permanent": true
+        }
+    ]
+}

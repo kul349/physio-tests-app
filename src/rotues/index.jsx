@@ -42,7 +42,7 @@ function AppRoutes() {
       />
 
       <Route
-        path="/page/assesment-stage"
+        path="/page/assessment-stage"
         element={
           <MainLayout>
             <AssessmentStagesPage />
