@@ -1,5 +1,6 @@
 import React from "react";
 import { useTests } from "../hooks/useTestFilter";
+import { Link } from "react-router-dom";
 
 export default function TestDetailPage() {
   const { filtered, search, setSearch, loading, error } = useTests();
@@ -41,15 +42,12 @@ export default function TestDetailPage() {
             <p className="text-gray-800 text-base">
               <strong>Purpose:</strong> {test.purpose}
             </p>
-            <p className="text-gray-700 text-base">
-              <strong>Starting position:</strong> {test.starting_position}
-            </p>
-            <p className="text-gray-700 text-base">
-              <strong>Grading / Notes:</strong> {test.grading_or_notes}
-            </p>
-            <p className="text-gray-700 text-base">
-              <strong>Procedure:</strong> {test.procedure}
-            </p>
+            <Link
+              to={`/tests/${test.id}`}
+              className="inline-block mt-2 text-blue-600 font-medium hover:underline"
+            >
+              View details →
+            </Link>
           </div>
         ))}
 

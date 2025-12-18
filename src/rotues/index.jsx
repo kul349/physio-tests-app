@@ -7,7 +7,7 @@ import TestDetailPage from "../pages/TestDetailPage";
 import AssessmentStagesPage from "../pages/AssessmentStagesPage";
 import BlogPage from "../pages/BlogPage";
 import BlogDetails from "../layouts/Blogdetails";
-
+import SingleTestDetails from "../pages/SingleTestDetails"
 function AppRoutes() {
   const location = useLocation();
 
@@ -66,6 +66,16 @@ function AppRoutes() {
           </MainLayout>
         }
       />
+
+      <Route
+        path="/tests/:id"
+        element={
+          <MainLayout>
+            <SingleTestDetails />
+          </MainLayout>
+        }
+      />
+
       <Route
         path="*"
         element={

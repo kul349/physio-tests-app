@@ -11,9 +11,8 @@ async function fetchTests() {
 export function useTests() {
   const [search, setSearch] = useState("");
 
-  // React Query v5 object syntax
   const {
-    data: tests = [],
+    data: tests = [], // default empty array avoids undefined
     isLoading,
     error,
   } = useQuery({
@@ -21,14 +20,13 @@ export function useTests() {
     queryFn: fetchTests,
   });
 
-  // Multi-field search: test_name, region, level
   const filtered = tests.filter((test) => {
     const query = search.toLowerCase();
     return (
       test.test_name.toLowerCase().includes(query) ||
-      (test.region && test.region.toLowerCase().includes(query)) 
+      (test.region && test.region.toLowerCase().includes(query))
     );
   });
 
-  return { filtered, search, setSearch, loading: isLoading, error };
+  return { tests, filtered, search, setSearch, loading: isLoading, error };
 }
