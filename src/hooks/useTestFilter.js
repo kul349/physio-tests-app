@@ -24,7 +24,8 @@ export function useTests() {
     const query = search.toLowerCase();
     return (
       test.test_name.toLowerCase().includes(query) ||
-      (test.region && test.region.toLowerCase().includes(query))
+      (test.region && test.region.toLowerCase().includes(query))||
+      (test.purpose.toLowerCase().includes(query))
     );
   });
 

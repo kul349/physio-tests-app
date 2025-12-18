@@ -1,6 +1,5 @@
 import { useParams, Link } from "react-router-dom";
 import { useTests } from "../hooks/useTestFilter"; // Make sure this path is correct
-import { div } from "framer-motion/client";
 
 // Helper to convert all YouTube links to embed with optional parameters
 function getEmbedUrl(url) {
@@ -40,7 +39,7 @@ export default function SIngleTestDetails() {
   const embedUrl = getEmbedUrl(test.youtube);
 
   return (
-    <div className=" mx-auto p-6 min-h-screen bg-silver-1 items-center ">
+    <div className=" mx-auto p-6 min-h-screen bg-silver-1 items-center  ">
       <Link to="/" className="text-blue-600 hover:underline">
         ← Back to tests
       </Link>
@@ -72,7 +71,7 @@ export default function SIngleTestDetails() {
 
       {embedUrl ? (
         <div className="mt-10 flex justify-center">
-          <div className="relative w-1/2 aspect-video rounded-xl overflow-hidden shadow-lg">
+          <div className="relative w-full sm:w-3/4 md:2/3  aspect-video rounded-xl overflow-hidden shadow-lg">
             <iframe
               src={embedUrl}
               title={test.test_name}
