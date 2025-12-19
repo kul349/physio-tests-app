@@ -1,22 +1,19 @@
 import fs from "fs";
 import path from "path";
 
-// Fix __dirname for ESM
-const __dirname = path.resolve();
-
 // Base URL
 const BASE_URL = "https://physio-tests-app.vercel.app";
 
-// Read tests JSON from public folder
+// Fix __dirname for ESM
+const __dirname = path.resolve();
+
+// Load dynamic data
+import { blogs } from "./data/blog.js"; // blogs array [{slug: "..."}]
 const testsRaw = fs.readFileSync(
   path.join(__dirname, "../public/physio-test.json"),
   "utf-8"
 );
-
-const tests = JSON.parse(testsRaw);
-
-// Import blogs from JS file
-import { blogs } from "./data/blog.js";
+const tests = JSON.parse(testsRaw); // tests array [{id: ...}]
 
 // Static pages
 const staticPages = [
@@ -43,7 +40,10 @@ let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 `;
 
+// Add static pages
 staticPages.forEach((page) => (sitemap += buildUrlEntry(page)));
+
+// Add dynamic blog pages
 blogs.forEach(
   (blog) =>
     (sitemap += buildUrlEntry({
@@ -52,6 +52,8 @@ blogs.forEach(
       changefreq: "daily",
     }))
 );
+
+// Add dynamic test pages
 tests.forEach(
   (test) =>
     (sitemap += buildUrlEntry({
@@ -63,6 +65,7 @@ tests.forEach(
 
 sitemap += "\n</urlset>";
 
-// Save sitemap.xml
-fs.writeFileSync(path.join(__dirname, "sitemap.xml"), sitemap.trim());
-console.log("✅ sitemap.xml generated successfully!");
+// Save directly to public/
+const sitemapPath = path.join(__dirname, "../public/sitemap.xml");
+fs.writeFileSync(sitemapPath, sitemap.trim());
+console.log("✅ sitemap.xml generated in public/ successfully!");
