@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 function Information() {
   return (
-    <section className="py-12 md:py-24 bg-lavender mt-6 md:mt-10 rounded-[3rem] px-4 md:px-8">
+    <section className="py-12 md:py-24 bg-lavender mt-6 md:mt-10 rounded-[3rem] px-4 md:px-8 mb-10">
       <div className="max-w-6xl mx-auto px-6 lg:px-8 text-center">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-charcoal-3 leading-snug tracking-wide mb-4">
           What Exactly Happens During a Physio Test?

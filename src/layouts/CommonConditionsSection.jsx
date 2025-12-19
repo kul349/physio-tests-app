@@ -35,7 +35,7 @@ const CommonConditionsSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-slate-50 relative overflow-hidden" id="help">
+    <section className="py-24 bg-slate-50 relative overflow-hidden rounded-3xl" id="help">
       {/* Background Subtle Shapes - Emerald/Teal */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] right-[-5%] w-[400px] h-[400px] bg-emerald-100 rounded-full blur-3xl opacity-30" />

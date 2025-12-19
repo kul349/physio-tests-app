@@ -12,7 +12,7 @@ const  DownloadSection=()=> {
   ];
 
   return (
-    <section className="py-24 bg-slate-50 overflow-hidden" id="guide">
+    <section className="py-24 bg-slate-50 overflow-hidden rounded-3xl mt-10 mb-10" id="guide">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           className="relative bg-white rounded-[2.5rem] border border-emerald-100 shadow-2xl overflow-hidden"
