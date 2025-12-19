@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "prebuild": "node generate-sitemap.mjs && cp sitemap.xml public/sitemap.xml",
+    "prebuild": "node src/generate-sitemap.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },
