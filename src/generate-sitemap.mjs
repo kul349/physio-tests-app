@@ -9,9 +9,10 @@ const BASE_URL = "https://physio-tests-app.vercel.app";
 
 // Read tests JSON from public folder
 const testsRaw = fs.readFileSync(
-  path.join(__dirname, "public/physio-test.json"),
+  path.join(__dirname, "../public/physio-test.json"),
   "utf-8"
 );
+
 const tests = JSON.parse(testsRaw);
 
 // Import blogs from JS file
