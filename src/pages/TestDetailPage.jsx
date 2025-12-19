@@ -1,15 +1,10 @@
 import { useTests } from "../hooks/useTestFilter";
+import { useEffect } from "react";
+import { useState } from "react";
 import React from "react";
 import { HashRouter, Routes, Route, Link } from "react-router-dom";
 import {
-  ChevronLeft,
-  Play,
-  Info,
-  CheckCircle2,
-  AlertCircle,
-  HelpCircle,
   BookOpen,
-  Lightbulb,
   Activity,
   Stethoscope,
   Search,
@@ -18,7 +13,15 @@ import {
 
 function TestDetailPage() {
   const { filtered, search, setSearch, loading, error } = useTests();
+  const [visibleCount, setVisibleCount] = useState(20);
+  const visibleTests = filtered.slice(0, visibleCount);
+  const [prevSearch, setPrevSearch] = useState(search);
 
+  if (search !== prevSearch) {
+    setPrevSearch(search);
+    setVisibleCount(20);
+  }
+  
   // ✅ Loading state
   if (loading) {
     return (
@@ -78,7 +81,7 @@ function TestDetailPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtered.map((test) => (
+          {visibleTests.map((test) => (
             <Link
               key={test.id}
               to={`/tests/${test.id}`}
@@ -137,6 +140,16 @@ function TestDetailPage() {
             </p>
           </div>
         </div>
+        {visibleCount < filtered.length && (
+          <div className="flex justify-center mt-12">
+            <button
+              onClick={() => setVisibleCount((prev) => prev + 20)}
+              className="bg-emerald-600 text-white px-10 py-4 rounded-2xl font-bold hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-600/20"
+            >
+              Load More
+            </button>
+          </div>
+        )}
 
         <p className="text-[10px] text-slate-400 text-center mt-12 uppercase tracking-[0.2em] font-bold">
           ⚠️ Not for diagnostic use. Consult a doctor for any pain or symptoms.

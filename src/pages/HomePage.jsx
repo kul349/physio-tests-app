@@ -78,7 +78,7 @@ const HomePage = () => {
         <meta name="theme-color" content={slides[currentSlide].bgColor} />
       </Helmet>
       
-      <div className="px-4 sm:px-6 lg:px-8">
+      <div className="px-4 sm:px-6 lg:px-8 mt-10">
         <div className="relative w-full min-h-screen overflow-hidden md:h-screen px-2 md:px-4 ">
           {slides.map((slide, index) => (
             <div

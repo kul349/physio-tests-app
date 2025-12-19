@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 function DownloadSection() {
   return (
     <motion.section
-      className="py-24 bg-white-smoke-2 mt-10 rounded-3xl text-center"
+      className="py-24 bg-white-smoke-2 mt-10 rounded-3xl mb-10 text-center"
       id="guide"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}

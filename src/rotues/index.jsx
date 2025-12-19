@@ -11,7 +11,7 @@ const AssessmentStagesPage = lazy(() =>
 const BlogPage = lazy(() => import("../pages/BlogPage"));
 const BlogDetails = lazy(() => import("../layouts/Blogdetails"));
 const SingleTestDetails = lazy(() => import("../pages/SingleTestDetails"));
-
+const AboutUs = lazy(()=>import("../pages/AboutUs")) ;
 // Simple loader (you can replace with skeleton later)
 function PageLoader() {
   return (
@@ -89,6 +89,14 @@ function AppRoutes() {
               <SingleTestDetails />
             </MainLayout>
           }
+        />
+
+        <Route
+        path="/page/about-us" element={
+          <MainLayout>
+            <AboutUs/>
+          </MainLayout>
+        }
         />
 
         <Route
