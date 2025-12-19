@@ -1,5 +1,4 @@
 import { useTests } from "../hooks/useTestFilter";
-import { useEffect } from "react";
 import { useState } from "react";
 import React from "react";
 import { HashRouter, Routes, Route, Link } from "react-router-dom";

@@ -77,6 +77,8 @@ const tailwindConfig = {
         32: "var(--tracking-32)",
       },
       colors: {
+        
+
         white: "var(--color-white)",
         "white-smoke": "var(--color-white-smoke)",
         "white-smoke-1": "var(--color-white-smoke-1)",
@@ -118,7 +120,6 @@ const tailwindConfig = {
         "hot-pink": "var(--color-hot-pink)",
         "sky-blue": "var(--color-sky-blue)",
         "sky-blue-1": "var(--color-sky-blue-1)",
-        slate: "var(--color-light-slate-gray)",
         "light-green": "var(--color-light-green)",
         "light-green-1": "var(--color-light-green-1)",
         "light-green-2": "var(--color-light-green-2)",
@@ -147,7 +148,7 @@ const tailwindConfig = {
         sea: "var(--color-light-sea-green)",
         turquoise2: "var(--color-dark-turquoise)",
         "turquoise2-1": "var(--color-dark-turquoise-1)",
-        spring: "var(--color-spring-green)",
+        spring: "var(--color-spring-gray)",
         blue: "var(--color-medium-blue)",
         charcoal: "var(--color-charcoal)",
         "charcoal-1": "var(--color-charcoal-1)",

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 function Information() {
   return (
-    <section className="py-12 md:py-20 bg-white-smoke-2 mt-6 md:mt-10 rounded-3xl px-4 md:px-8">
+    <section className="py-12 md:py-24 bg-lavender mt-6 md:mt-10 rounded-[3rem] px-4 md:px-8">
       <div className="max-w-6xl mx-auto px-6 lg:px-8 text-center">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-charcoal-3 leading-snug tracking-wide mb-4">
           What Exactly Happens During a Physio Test?
@@ -17,7 +17,7 @@ function Information() {
         </p>
         <Link
           to="/page/assesment-stage"
-          className="inline-flex items-center gap-3 px-6 md:px-8 py-3 text-sm sm:text-base md:text-lg font-bold uppercase tracking-wider border-2 border-dark-gray-9 text-dark-gray-9 rounded-full  transition duration-300  hover:text-white hover:bg-dark-gray-9"
+          className="inline-flex items-center gap-3 px-8 md:px-10 py-4 text-sm sm:text-base md:text-lg font-bold uppercase tracking-widest border-2 border-[#4f7661] text-[#4f7661] rounded-full transition duration-300 hover:text-white hover:bg-[#4f7661] shadow-lg shadow-emerald-900/5"
         >
           See the Assessment Stages
           <GoArrowRight />
