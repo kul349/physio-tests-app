@@ -55,14 +55,18 @@ const HomePage = () => {
 
   return (
     <div className="px-4 sm:px-6 lg:px-8 mt-10 min-h-screen bg-white font-sans">
-      <div className="relative w-full min-h-[85vh] overflow-hidden md:h-[80vh] px-2 md:px-4 mb-12 shadow-2xl shadow-emerald-900/10 rounded-[2.5rem]">
+      <div
+        className="relative w-full overflow-hidden mb-8 min-h-[70vh] px-3  rounded-2xl shadow-lg shadow-emerald-900/5 sm:min-h-[75vh] sm:px-4 md:min-h-[80vh]
+md:px-6 md:rounded-[2.5rem] md:shadow-2xl md:shadow-emerald-900/10
+"
+      >
         {slides.map((slide, index) => (
-          <div
-            key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              currentSlide === index ? "opacity-100 z-10" : "opacity-0 z-0"
-            }`}
-          >
+         <div
+         className={`absolute inset-0 transition-opacity duration-1000 ${
+           currentSlide === index ? "opacity-100 z-10" : "opacity-0 z-0"
+         }`}
+       >
+       
             <div className="flex flex-col md:flex-row h-full">
               {/* Left Side - Information & Actions */}
               <div
@@ -120,16 +124,18 @@ const HomePage = () => {
               </div>
 
               {/* Right Side - Visuals */}
-              <div className="w-full md:w-1/2 h-80 md:h-full bg-slate-100 relative overflow-hidden">
+              <div className="w-full md:w-1/2 relative overflow-hidden bg-slate-100 h-[45vh] sm:h-[50vh] md:h-full">
                 <div
-                  className={`absolute inset-0 bg-cover bg-center transition-transform duration-[6000ms] ease-out ${
+                  className={`absolute inset-0 bg-cover transition-transform duration-[6000ms] ease-out ${
                     currentSlide === index ? "scale-110" : "scale-100"
                   }`}
                   style={{
                     backgroundImage: `url(${slide.image})`,
+                    backgroundPosition: "center top",
                     filter: "contrast(1.05) brightness(0.9)",
                   }}
                 />
+
                 <div className="absolute inset-0 bg-gradient-to-r from-black/10 to-transparent md:hidden" />
               </div>
             </div>
