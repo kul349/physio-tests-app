@@ -1,19 +1,23 @@
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
+import { blogs } from "./data/blog.js"; // Ensure this file exists and exports an array of blogs
+
+// Fix __dirname for ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Base URL
 const BASE_URL = "https://physio-tests-app.vercel.app";
 
-// Fix __dirname for ESM
-const __dirname = path.resolve();
-
-// Load dynamic data
-import { blogs } from "./data/blog.js"; // blogs array [{slug: "..."}]
-const testsRaw = fs.readFileSync(
-  path.join(__dirname, "../public/physio-test.json"),
-  "utf-8"
-);
-const tests = JSON.parse(testsRaw); // tests array [{id: ...}]
+// Load tests JSON
+const testsPath = path.join(__dirname, "../public/physio-test.json");
+if (!fs.existsSync(testsPath)) {
+  console.error("❌ Error: public/physio-test.json not found!");
+  process.exit(1);
+}
+const testsRaw = fs.readFileSync(testsPath, "utf-8");
+const tests = JSON.parse(testsRaw);
 
 // Static pages
 const staticPages = [
@@ -24,7 +28,7 @@ const staticPages = [
   { url: "/page/blog", priority: 0.8, changefreq: "weekly" },
 ];
 
-// Utility functions
+// Helper functions
 const getLastMod = () => new Date().toISOString().split("T")[0];
 const buildUrlEntry = ({ url, priority, changefreq }) => `
   <url>
@@ -35,15 +39,12 @@ const buildUrlEntry = ({ url, priority, changefreq }) => `
   </url>
 `;
 
-// Build sitemap
+// Build sitemap content
 let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 `;
 
-// Add static pages
 staticPages.forEach((page) => (sitemap += buildUrlEntry(page)));
-
-// Add dynamic blog pages
 blogs.forEach(
   (blog) =>
     (sitemap += buildUrlEntry({
@@ -52,8 +53,6 @@ blogs.forEach(
       changefreq: "daily",
     }))
 );
-
-// Add dynamic test pages
 tests.forEach(
   (test) =>
     (sitemap += buildUrlEntry({
@@ -65,7 +64,12 @@ tests.forEach(
 
 sitemap += "\n</urlset>";
 
-// Save directly to public/
+// Write sitemap directly to public/
 const sitemapPath = path.join(__dirname, "../public/sitemap.xml");
 fs.writeFileSync(sitemapPath, sitemap.trim());
-console.log("✅ sitemap.xml generated in public/ successfully!");
+
+console.log(
+  `✅ sitemap.xml generated successfully with ${
+    staticPages.length + blogs.length + tests.length
+  } pages!`
+);
