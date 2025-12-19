@@ -88,7 +88,7 @@ function TestDetailPage() {
             >
               <div>
                 <div className="flex justify-between items-start mb-4">
-                  <span className="px-3 py-1 bg-slate-600 text-[10px] font-black uppercase tracking-wider rounded-lg group-hover:bg-emerald-50 group-hover:text-emerald-700 transition-colors">
+                  <span className="px-3 py-1 bg-slate-50 text-[10px] font-black uppercase tracking-wider rounded-lg group-hover:bg-emerald-50 group-hover:text-emerald-700 transition-colors">
                     {test.region}
                   </span>
                   <div className="p-2 rounded-full bg-slate-50 text-slate-300 group-hover:text-emerald-500 transition-colors">
