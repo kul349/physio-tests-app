@@ -63,9 +63,8 @@ const HomePage = () => {
               currentSlide === index ? "opacity-100 z-10" : "opacity-0 z-0"
             }`}
           >
-            {/* SLIDE */}
             <div className="flex flex-col md:flex-row h-full">
-              {/* LEFT — Content first (auto height on mobile) */}
+              {/* LEFT — Content first on mobile */}
               <div
                 className="w-full md:w-1/2 flex items-center justify-center px-6 lg:px-20 py-10 sm:py-12 md:py-0 transition-colors duration-1000"
                 style={{ backgroundColor: slide.bgColor }}
@@ -115,20 +114,18 @@ const HomePage = () => {
                 </div>
               </div>
 
-              {/* RIGHT — Visual (controlled height on mobile) */}
+              {/* RIGHT — Hero image */}
               <div className="w-full md:w-1/2 relative overflow-hidden bg-slate-100 h-[40vh] sm:h-[45vh] md:h-full">
-                <div
-                  className={`absolute inset-0 bg-cover transition-transform duration-[6000ms] ease-out ${
+                <img
+                  src={slide.image}
+                  alt={slide.title}
+                  className={`absolute inset-0 w-full h-full object-cover transition-transform duration-[6000ms] ease-out ${
                     currentSlide === index ? "scale-110" : "scale-100"
                   }`}
-                  style={{
-                    backgroundImage: `url(${slide.image})`,
-                    backgroundPosition: "center top",
-                    filter: "contrast(1.05) brightness(0.9)",
-                  }}
+                  loading={index === 0 ? "eager" : "lazy"}
                 />
 
-                {/* Mobile overlay */}
+                {/* Mobile gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-r from-black/10 to-transparent md:hidden" />
               </div>
             </div>
