@@ -1,7 +1,6 @@
 import { useTests } from "../hooks/useTestFilter";
 import { useState } from "react";
-import React from "react";
-import { HashRouter, Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 import {
@@ -23,7 +22,6 @@ function TestDetailPage() {
     setVisibleCount(20);
   }
   
-  // ✅ Loading state
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center text-slate-500">
@@ -32,7 +30,6 @@ function TestDetailPage() {
     );
   }
 
-  // ✅ Error state
   if (error) {
     return (
       <div className="min-h-screen flex items-center justify-center text-red-500">
@@ -56,7 +53,6 @@ function TestDetailPage() {
           href="https://physio-tests-app.vercel.app/page/test-details"
         />
 
-        {/* Open Graph */}
         <meta property="og:title" content="Physiotherapy Test Library" />
         <meta
           property="og:description"

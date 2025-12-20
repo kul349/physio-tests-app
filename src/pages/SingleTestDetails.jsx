@@ -5,18 +5,14 @@ import {
   Info,
   ClipboardCheck,
   UserCircle,
-  AlertCircle,
   Video,
-  ArrowRight,
-  Search,
   BookOpen,
   ShieldAlert,
 } from "lucide-react";
 import { useParams, Link } from "react-router-dom";
-import { useTests } from "../hooks/useTestFilter"; // Make sure this path is correct
+import { useTests } from "../hooks/useTestFilter"; 
 import { Helmet } from "react-helmet-async";
 
-// Helper to convert all YouTube links to embed with optional parameters
 function getEmbedUrl(url) {
   if (!url) return null;
   let videoId = null;
@@ -40,7 +36,6 @@ export default function SingleTestDetails() {
   if (error)
     return <p className="text-center text-red-500 py-10">{error.message}</p>;
 
-  // Safe optional chaining to prevent errors
   const test = tests?.find((t) => String(t.slug) === slug);
   if (!test)
     return <p className="text-center py-10 text-gray-500">Test not found</p>;
@@ -122,7 +117,6 @@ export default function SingleTestDetails() {
       </Helmet>
 
       <div className="min-h-screen bg-white font-sans text-slate-900 pb-20">
-        {/* Top Navigation - Friendly Tone */}
         <nav className="sticky top-0 z-30 bg-white/90 backdrop-blur-sm border-b border-slate-100">
           <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
             <Link
@@ -142,7 +136,6 @@ export default function SingleTestDetails() {
         </nav>
 
         <main className="max-w-4xl mx-auto px-6 mt-12">
-          {/* Header - Simple & Explanatory */}
           <header className="mb-12">
             <div className="inline-block bg-emerald-50 text-emerald-700 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4">
               Focus Area: {test.region}
@@ -156,7 +149,6 @@ export default function SingleTestDetails() {
             </p>
           </header>
 
-          {/* Video Demonstration */}
           <section className="mb-16">
             <div className="flex items-center gap-2 mb-4 text-slate-400">
               <Video size={18} />
@@ -184,7 +176,6 @@ export default function SingleTestDetails() {
             </div>
           </section>
 
-          {/* Step-by-Step Breakdown */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             <div className="space-y-4">
               <h3 className="flex items-center gap-2 text-lg font-bold text-slate-900">
@@ -207,7 +198,6 @@ export default function SingleTestDetails() {
             </div>
           </div>
 
-          {/* The Result - Plain English */}
           <section className="bg-dark-gray-1 text-white p-10 rounded-[2.5rem] mb-12 shadow-xl shadow-slate-200">
             <div className="flex items-center gap-2 text-emerald-400 mb-6">
               <Info size={20} />
@@ -231,7 +221,6 @@ export default function SingleTestDetails() {
             </div>
           </section>
 
-          {/* Safety First - Critical for Open Learning */}
           <section className="bg-rose-50 border border-rose-100 p-8 rounded-3xl mb-16">
             <div className="flex items-center gap-2 text-rose-600 mb-4">
               <ShieldAlert size={20} />
@@ -245,7 +234,6 @@ export default function SingleTestDetails() {
             </p>
           </section>
 
-          {/* Support Section */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 p-8 border-2 border-dashed border-slate-200 rounded-[2rem]">
             <div className="text-center md:text-left">
               <h4 className="font-bold text-slate-900">
@@ -260,7 +248,6 @@ export default function SingleTestDetails() {
             </button>
           </div>
 
-          {/* Footer */}
           <footer className="mt-24 pt-12 border-t border-slate-100 text-center">
             <p className="text-xs text-slate-400 max-w-xl mx-auto leading-loose italic">
               This is an open learning resource designed to empower patients

@@ -1,18 +1,13 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 import {
   ChevronLeft,
   Target,
-  Users,
-  Zap,
   ShieldCheck,
-  BookOpen,
   Search,
   Activity,
   Heart,
-  Mail,
   Stethoscope,
   Smile,
 } from "lucide-react";

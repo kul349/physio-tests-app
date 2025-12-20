@@ -66,7 +66,6 @@ const HomePage = () => {
         />
         <link rel="canonical" href="https://physio-tests-app.vercel.app/" />
 
-        {/* Open Graph */}
         <meta property="og:title" content="Physio Tests for Patients" />
         <meta
           property="og:description"
@@ -97,7 +96,6 @@ const HomePage = () => {
               }`}
             >
               <div className="flex flex-col md:flex-row h-full">
-                {/* LEFT — Content first on mobile */}
                 <div
                   className="w-full md:w-1/2 flex items-center justify-center px-6 lg:px-20 py-10 sm:py-12 md:py-0 transition-colors duration-1000"
                   style={{ backgroundColor: slide.bgColor }}
@@ -147,7 +145,6 @@ const HomePage = () => {
                   </div>
                 </div>
 
-                {/* RIGHT — Hero image */}
                 <div className="w-full md:w-1/2 relative overflow-hidden bg-slate-100 h-[40vh] sm:h-[45vh] md:h-full">
                   <img
                     src={slide.image}
@@ -158,7 +155,6 @@ const HomePage = () => {
                     loading={index === 0 ? "eager" : "lazy"}
                   />
 
-                  {/* Mobile gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-r from-black/10 to-transparent md:hidden" />
                 </div>
               </div>

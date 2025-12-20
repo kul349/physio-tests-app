@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FileText, Download, CheckCircle2, ArrowRight } from "lucide-react";
 
+const DownloadSection = () => {
+  const [loading, setLoading] = useState(false);
 
-const  DownloadSection=()=> {
   const benefits = [
     "Comprehensive assessment checklists",
     "Self-screening techniques at home",
@@ -11,8 +12,27 @@ const  DownloadSection=()=> {
     "Recovery timeline expectations",
   ];
 
+  const handleDownload = () => {
+    setLoading(true); // start spinner/loading
+
+    setTimeout(() => {
+      const pdfUrl = "physio_tests_report.pdf"; 
+      const link = document.createElement("a");
+      link.href = pdfUrl;
+      link.download = "Physiotherapy_Guide.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      setLoading(false); // stop spinner/loading
+    }, 2000); // 2 seconds delay
+  };
+
   return (
-    <section className="py-24 bg-slate-50 overflow-hidden rounded-3xl mt-10 mb-10" id="guide">
+    <section
+      className="py-24 bg-slate-50 overflow-hidden rounded-3xl mt-10 mb-10"
+      id="guide"
+    >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           className="relative bg-white rounded-[2.5rem] border border-emerald-100 shadow-2xl overflow-hidden"
@@ -79,28 +99,35 @@ const  DownloadSection=()=> {
                 ))}
               </motion.div>
 
+              {/* Download button with delay & spinner */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.7 }}
               >
-                <motion.a
-                  href="#"
-                  className="inline-flex items-center justify-center space-x-3 px-10 py-5 bg-emerald-600 text-white font-bold rounded-2xl shadow-lg shadow-emerald-200 transition-all hover:bg-emerald-700 group"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                <button
+                  onClick={handleDownload}
+                  disabled={loading}
+                  className={`inline-flex items-center justify-center space-x-3 px-10 py-5 font-bold rounded-2xl shadow-lg transition-all ${
+                    loading
+                      ? "bg-emerald-600  text-white cursor-not-allowed"
+                      : "bg-emerald-600 text-white hover:bg-emerald-700"
+                  }`}
                 >
-                  <Download className="w-5 h-5" />
-                  <span>Download Free PDF Guide</span>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </motion.a>
+                  {loading && (
+                    <span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                  )}
+                  <span>
+                    {loading ? "Preparing PDF..." : "Download Free PDF Guide"}
+                  </span>
+                  {!loading && <ArrowRight className="w-5 h-5" />}
+                </button>
               </motion.div>
             </div>
 
             {/* Right Column: Visual Preview */}
             <div className="relative flex justify-center items-center py-12 lg:py-0">
-              {/* Abstract decorative circles */}
               <div className="absolute w-72 h-72 bg-emerald-100 rounded-full blur-3xl opacity-60" />
 
               <motion.div
@@ -110,7 +137,6 @@ const  DownloadSection=()=> {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                {/* Mock Guide Content */}
                 <div className="w-12 h-1 bg-emerald-500 rounded mb-4" />
                 <div className="text-xs font-bold text-slate-400 uppercase tracking-tighter mb-2">
                   Manual v2.4
@@ -131,7 +157,6 @@ const  DownloadSection=()=> {
                 </div>
               </motion.div>
 
-              {/* Second floating page */}
               <motion.div
                 className="absolute z-0 w-56 h-72 bg-emerald-50 border border-emerald-100 rounded-tr-2xl rounded-br-2xl shadow-lg flex flex-col p-6"
                 initial={{ rotate: 10, x: -20, opacity: 0 }}
@@ -151,6 +176,6 @@ const  DownloadSection=()=> {
       </div>
     </section>
   );
-}
+};
 
 export default DownloadSection;
