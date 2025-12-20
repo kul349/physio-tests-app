@@ -68,7 +68,7 @@ function AppRoutes() {
           }
         />
         <Route
-          path="/tests/:id"
+          path="/tests/:slug"
           element={
             <MainLayout>
               <SingleTestDetails />

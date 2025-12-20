@@ -5,6 +5,7 @@ import Information from "../layouts/Information"
 import DownloadSection from "../layouts/DownloadSection"
 import CommonConditionsSection from "../layouts/CommonConditionsSection"
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -54,91 +55,124 @@ const HomePage = () => {
   }, []); 
 
   return (
-    <div className="px-4 sm:px-6 lg:px-8 mt-10 min-h-screen bg-white font-sans">
-      <div className="relative w-full overflow-hidden mb-8 min-h-[70vh] sm:min-h-[75vh] md:min-h-[80vh] px-3 sm:px-4 md:px-6 rounded-2xl md:rounded-[2.5rem] shadow-lg shadow-emerald-900/5 md:shadow-2xl md:shadow-emerald-900/10">
-        {slides.map((slide, index) => (
-          <div
-            key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              currentSlide === index ? "opacity-100 z-10" : "opacity-0 z-0"
-            }`}
-          >
-            <div className="flex flex-col md:flex-row h-full">
-              {/* LEFT — Content first on mobile */}
-              <div
-                className="w-full md:w-1/2 flex items-center justify-center px-6 lg:px-20 py-10 sm:py-12 md:py-0 transition-colors duration-1000"
-                style={{ backgroundColor: slide.bgColor }}
-              >
-                <div className="max-w-xl w-full">
-                  <div className="text-white/80 text-[10px] sm:text-xs md:text-sm font-bold tracking-[0.3em] uppercase mb-6 flex items-center gap-2">
-                    <span className="w-8 h-[1px] bg-white/40"></span>
-                    {slide.label}
-                  </div>
+    <>
+      <Helmet>
+        <title>
+          Physio Tests for Patients | Understand Physiotherapy Tests at Home
+        </title>
+        <meta
+          name="description"
+          content="Learn and understand physiotherapy tests at home. Simple explanations, videos, and self-tests designed for patients."
+        />
+        <link rel="canonical" href="https://physio-tests-app.vercel.app/" />
 
-                  <h1 className="text-white text-xl sm:text-2xl md:text-4xl lg:text-5xl font-black leading-[1.1] tracking-tight mb-6 sm:mb-8">
-                    {slide.title}
-                  </h1>
+        {/* Open Graph */}
+        <meta property="og:title" content="Physio Tests for Patients" />
+        <meta
+          property="og:description"
+          content="Learn physiotherapy tests with videos and guides at home."
+        />
+        <meta
+          property="og:url"
+          content="https://physio-tests-app.vercel.app/"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://physio-tests-app.vercel.app/img-slider-1.webp"
+        />
+      </Helmet>
 
-                  <p className="text-white text-sm sm:text-base md:text-xl font-medium leading-relaxed mb-8 sm:mb-10 opacity-95">
-                    {slide.description}
-                  </p>
+      <h1 className="sr-only">
+        Physio Tests for Patients – Understand Physiotherapy Tests at Home
+      </h1>
 
-                  <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8">
-                    <Link
-                      to="/page/test-details"
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-4 sm:py-5 bg-white text-emerald-900 hover:scale-105 active:scale-95 font-bold tracking-wide rounded-full shadow-xl shadow-black/10 transition-all duration-300"
-                    >
-                      <span>START LEARNING</span>
-                      <ArrowRight size={20} />
-                    </Link>
+      <div className="px-4 sm:px-6 lg:px-8 mt-10 min-h-screen bg-white font-sans">
+        <div className="relative w-full overflow-hidden mb-8 min-h-[70vh] sm:min-h-[75vh] md:min-h-[80vh] px-3 sm:px-4 md:px-6 rounded-2xl md:rounded-[2.5rem] shadow-lg shadow-emerald-900/5 md:shadow-2xl md:shadow-emerald-900/10">
+          {slides.map((slide, index) => (
+            <div
+              key={slide.id}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                currentSlide === index ? "opacity-100 z-10" : "opacity-0 z-0"
+              }`}
+            >
+              <div className="flex flex-col md:flex-row h-full">
+                {/* LEFT — Content first on mobile */}
+                <div
+                  className="w-full md:w-1/2 flex items-center justify-center px-6 lg:px-20 py-10 sm:py-12 md:py-0 transition-colors duration-1000"
+                  style={{ backgroundColor: slide.bgColor }}
+                >
+                  <div className="max-w-xl w-full">
+                    <div className="text-white/80 text-[10px] sm:text-xs md:text-sm font-bold tracking-[0.3em] uppercase mb-6 flex items-center gap-2">
+                      <span className="w-8 h-[1px] bg-white/40"></span>
+                      {slide.label}
+                    </div>
 
-                    <a
-                      href="https://www.youtube.com/watch?v=JFMhJBCfHbE"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-4 text-white group"
-                    >
-                      <div className="relative w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center">
-                        <div className="absolute inset-0 rounded-full border border-white/40" />
-                        <div className="absolute inset-1 rounded-full bg-white/20 backdrop-blur-md transition-transform duration-300 group-hover:scale-110" />
-                        <Play
-                          size={18}
-                          className="relative z-10 ml-1 fill-white"
-                        />
-                      </div>
-                      <span className="text-sm sm:text-base font-bold tracking-wide">
-                        Watch Video
-                      </span>
-                    </a>
+                    <h2 className="text-white text-xl sm:text-2xl md:text-4xl lg:text-5xl font-black leading-[1.1] tracking-tight mb-6 sm:mb-8">
+                      {slide.title}
+                    </h2>
+
+                    <p className="text-white text-sm sm:text-base md:text-xl font-medium leading-relaxed mb-8 sm:mb-10 opacity-95">
+                      {slide.description}
+                    </p>
+
+                    <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8">
+                      <Link
+                        to="/page/test-details"
+                        className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-4 sm:py-5 bg-white text-emerald-900 hover:scale-105 active:scale-95 font-bold tracking-wide rounded-full shadow-xl shadow-black/10 transition-all duration-300"
+                      >
+                        <span> Explore Physiotherapy Tests</span>
+                        <ArrowRight size={20} />
+                      </Link>
+
+                      <a
+                        href="https://www.youtube.com/watch?v=JFMhJBCfHbE"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-4 text-white group"
+                      >
+                        <div className="relative w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center">
+                          <div className="absolute inset-0 rounded-full border border-white/40" />
+                          <div className="absolute inset-1 rounded-full bg-white/20 backdrop-blur-md transition-transform duration-300 group-hover:scale-110" />
+                          <Play
+                            size={18}
+                            className="relative z-10 ml-1 fill-white"
+                          />
+                        </div>
+                        <span className="text-sm sm:text-base font-bold tracking-wide">
+                          Watch Video
+                        </span>
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* RIGHT — Hero image */}
-              <div className="w-full md:w-1/2 relative overflow-hidden bg-slate-100 h-[40vh] sm:h-[45vh] md:h-full">
-                <img
-                  src={slide.image}
-                  alt={slide.title}
-                  className={`absolute inset-0 w-full h-full object-cover transition-transform duration-[6000ms] ease-out ${
-                    currentSlide === index ? "scale-110" : "scale-100"
-                  }`}
-                  loading={index === 0 ? "eager" : "lazy"}
-                />
+                {/* RIGHT — Hero image */}
+                <div className="w-full md:w-1/2 relative overflow-hidden bg-slate-100 h-[40vh] sm:h-[45vh] md:h-full">
+                  <img
+                    src={slide.image}
+                    alt={`Physiotherapy test education-${slide.title}`}
+                    className={`absolute inset-0 w-full h-full object-cover transition-transform duration-[6000ms] ease-out ${
+                      currentSlide === index ? "scale-110" : "scale-100"
+                    }`}
+                    loading={index === 0 ? "eager" : "lazy"}
+                  />
 
-                {/* Mobile gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-black/10 to-transparent md:hidden" />
+                  {/* Mobile gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/10 to-transparent md:hidden" />
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      <div id="learning">
-        <Information />
-        <CommonConditionsSection />
-        <DownloadSection />
+        <div id="learning">
+          <Information />
+          <CommonConditionsSection />
+          <DownloadSection />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
