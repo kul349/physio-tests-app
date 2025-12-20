@@ -15,7 +15,7 @@ const HomePage = () => {
     {
       id: 1,
       image:
-        "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1000",
+        "img-slider-1.webp",
       label: "Open Learning Library",
       title: "Understanding your body shouldn't be a mystery.",
       description:
@@ -25,7 +25,7 @@ const HomePage = () => {
     { 
       id: 2,
       image:
-        "https://images.unsplash.com/photo-1597452485669-2c7bb5fef90d?auto=format&fit=crop&q=80&w=1000",
+        "img-service2.webp",
       label: "Patient Education",
       title: "Simple guides for common clinical tests.",
       description:
@@ -35,7 +35,7 @@ const HomePage = () => {
     {
       id: 3,
       image:
-        "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000",
+        "scroll2.webp",
       label: "Empower Your Recovery",
       title: "Be an active partner in your physical healing.",
       description:
@@ -55,40 +55,39 @@ const HomePage = () => {
 
   return (
     <div className="px-4 sm:px-6 lg:px-8 mt-10 min-h-screen bg-white font-sans">
-      <div
-        className="relative w-full overflow-hidden mb-8 min-h-[70vh] px-3  rounded-2xl shadow-lg shadow-emerald-900/5 sm:min-h-[75vh] sm:px-4 md:min-h-[80vh]
-md:px-6 md:rounded-[2.5rem] md:shadow-2xl md:shadow-emerald-900/10
-"
-      >
+      <div className="relative w-full overflow-hidden mb-8 min-h-[70vh] sm:min-h-[75vh] md:min-h-[80vh] px-3 sm:px-4 md:px-6 rounded-2xl md:rounded-[2.5rem] shadow-lg shadow-emerald-900/5 md:shadow-2xl md:shadow-emerald-900/10">
         {slides.map((slide, index) => (
-         <div
-         className={`absolute inset-0 transition-opacity duration-1000 ${
-           currentSlide === index ? "opacity-100 z-10" : "opacity-0 z-0"
-         }`}
-       >
-       
+          <div
+            key={slide.id}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              currentSlide === index ? "opacity-100 z-10" : "opacity-0 z-0"
+            }`}
+          >
+            {/* SLIDE */}
             <div className="flex flex-col md:flex-row h-full">
-              {/* Left Side - Information & Actions */}
+              {/* LEFT — Content first (auto height on mobile) */}
               <div
-                className="w-full md:w-1/2 flex items-center justify-center px-8 lg:px-20 py-16 md:py-0 transition-colors duration-1000"
+                className="w-full md:w-1/2 flex items-center justify-center px-6 lg:px-20 py-10 sm:py-12 md:py-0 transition-colors duration-1000"
                 style={{ backgroundColor: slide.bgColor }}
               >
                 <div className="max-w-xl w-full">
-                  <div className="text-white/80 text-xs md:text-sm font-bold tracking-[0.3em] uppercase mb-6 flex items-center gap-2">
+                  <div className="text-white/80 text-[10px] sm:text-xs md:text-sm font-bold tracking-[0.3em] uppercase mb-6 flex items-center gap-2">
                     <span className="w-8 h-[1px] bg-white/40"></span>
                     {slide.label}
                   </div>
-                  <h1 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-[1.1] tracking-tight mb-8 font-sans">
+
+                  <h1 className="text-white text-xl sm:text-2xl md:text-4xl lg:text-5xl font-black leading-[1.1] tracking-tight mb-6 sm:mb-8">
                     {slide.title}
                   </h1>
-                  <p className="text-white text-base md:text-xl font-medium leading-relaxed mb-10 opacity-95">
+
+                  <p className="text-white text-sm sm:text-base md:text-xl font-medium leading-relaxed mb-8 sm:mb-10 opacity-95">
                     {slide.description}
                   </p>
 
-                  <div className="flex flex-col sm:flex-row items-center gap-8">
+                  <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8">
                     <Link
                       to="/page/test-details"
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-5 bg-white text-emerald-900 hover:scale-105 active:scale-95 font-bold tracking-wide rounded-full shadow-xl shadow-black/10 transition-all duration-300"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-4 sm:py-5 bg-white text-emerald-900 hover:scale-105 active:scale-95 font-bold tracking-wide rounded-full shadow-xl shadow-black/10 transition-all duration-300"
                     >
                       <span>START LEARNING</span>
                       <ArrowRight size={20} />
@@ -100,22 +99,15 @@ md:px-6 md:rounded-[2.5rem] md:shadow-2xl md:shadow-emerald-900/10
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-4 text-white group"
                     >
-                      <div className="relative w-14 h-14 flex items-center justify-center">
-                        {/* Outer ring */}
+                      <div className="relative w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center">
                         <div className="absolute inset-0 rounded-full border border-white/40" />
-
-                        {/* Inner circle (different color) */}
                         <div className="absolute inset-1 rounded-full bg-white/20 backdrop-blur-md transition-transform duration-300 group-hover:scale-110" />
-
-                        {/* Play icon */}
                         <Play
-                          size={22}
-                          fill="white"
-                          className="relative z-10 ml-1 text-white"
+                          size={18}
+                          className="relative z-10 ml-1 fill-white"
                         />
                       </div>
-
-                      <span className="text-base font-bold tracking-wide">
+                      <span className="text-sm sm:text-base font-bold tracking-wide">
                         Watch Video
                       </span>
                     </a>
@@ -123,8 +115,8 @@ md:px-6 md:rounded-[2.5rem] md:shadow-2xl md:shadow-emerald-900/10
                 </div>
               </div>
 
-              {/* Right Side - Visuals */}
-              <div className="w-full md:w-1/2 relative overflow-hidden bg-slate-100 h-[45vh] sm:h-[50vh] md:h-full">
+              {/* RIGHT — Visual (controlled height on mobile) */}
+              <div className="w-full md:w-1/2 relative overflow-hidden bg-slate-100 h-[40vh] sm:h-[45vh] md:h-full">
                 <div
                   className={`absolute inset-0 bg-cover transition-transform duration-[6000ms] ease-out ${
                     currentSlide === index ? "scale-110" : "scale-100"
@@ -136,6 +128,7 @@ md:px-6 md:rounded-[2.5rem] md:shadow-2xl md:shadow-emerald-900/10
                   }}
                 />
 
+                {/* Mobile overlay */}
                 <div className="absolute inset-0 bg-gradient-to-r from-black/10 to-transparent md:hidden" />
               </div>
             </div>
