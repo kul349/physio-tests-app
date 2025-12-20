@@ -1,38 +1,7 @@
-import React, { useEffect, lazy, Suspense } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
-import MainLayout from "../layouts/MainLayout";
-import HomePage from "../pages/HomePage";
-
-// Lazy-loaded pages
-const TestDetailPage = lazy(() => import("../pages/TestDetailPage"));
-const AssessmentStagesPage = lazy(() =>
-  import("../pages/AssessmentStagesPage")
-);
-const BlogPage = lazy(() => import("../pages/BlogPage"));
-const BlogDetails = lazy(() => import("../layouts/Blogdetails"));
-const SingleTestDetails = lazy(() => import("../pages/SingleTestDetails"));
-const AboutUs = lazy(()=>import("../pages/AboutUs")) ;
-// Simple loader (you can replace with skeleton later)
-function PageLoader() {
-  return (
-    <div className="min-h-screen flex items-center justify-center text-emerald-600 font-bold">
-      Loading...
-    </div>
-  );
-}
+import { usePageTracking } from "../hooks/usePageTracking";
 
 function AppRoutes() {
-  const location = useLocation();
-
-  useEffect(() => {
-    // Google Analytics page view
-    if (window.gtag) {
-      window.gtag("event", "page_view", {
-        page_path: location.pathname,
-        page_title: document.title,
-      });
-    }
-  }, [location]);
+  usePageTracking(); // automatically track page views
 
   return (
     <Suspense fallback={<PageLoader />}>
@@ -45,7 +14,6 @@ function AppRoutes() {
             </MainLayout>
           }
         />
-
         <Route
           path="/page/test-details"
           element={
@@ -54,7 +22,6 @@ function AppRoutes() {
             </MainLayout>
           }
         />
-
         <Route
           path="/page/assessment-stage"
           element={
@@ -63,7 +30,6 @@ function AppRoutes() {
             </MainLayout>
           }
         />
-
         <Route
           path="/page/blog"
           element={
@@ -72,7 +38,6 @@ function AppRoutes() {
             </MainLayout>
           }
         />
-
         <Route
           path="/blog/:slug"
           element={
@@ -81,7 +46,6 @@ function AppRoutes() {
             </MainLayout>
           }
         />
-
         <Route
           path="/tests/:id"
           element={
@@ -90,15 +54,14 @@ function AppRoutes() {
             </MainLayout>
           }
         />
-
         <Route
-        path="/page/about-us" element={
-          <MainLayout>
-            <AboutUs/>
-          </MainLayout>
-        }
+          path="/page/about-us"
+          element={
+            <MainLayout>
+              <AboutUs />
+            </MainLayout>
+          }
         />
-
         <Route
           path="*"
           element={
