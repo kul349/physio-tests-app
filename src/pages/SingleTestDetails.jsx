@@ -52,16 +52,73 @@ export default function SingleTestDetails() {
     <>
       <Helmet>
         <title>{test.test_name} Self Test at Home | Free Physio Test</title>
-
         <meta
           name="description"
           content={`Learn how to perform the ${test.test_name} safely at home and understand what your results mean.`}
         />
-
         <link
           rel="canonical"
           href={`https://physio-tests-app.vercel.app/tests/${test.slug}`}
         />
+
+        <meta
+          property="og:title"
+          content={`${test.test_name} Self Test at Home`}
+        />
+        <meta
+          property="og:description"
+          content={`Learn how to perform the ${test.test_name} safely at home and understand what your results mean.`}
+        />
+        <meta property="og:type" content="article" />
+        <meta
+          property="og:url"
+          content={`https://physio-tests-app.vercel.app/tests/${test.slug}`}
+        />
+        <meta
+          property="og:image"
+          content={test.thumbnail || "/default-thumbnail.jpg"}
+        />
+        <meta property="og:site_name" content="Free Physio Test" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content={`${test.test_name} Self Test at Home`}
+        />
+        <meta
+          name="twitter:description"
+          content={`Learn how to perform the ${test.test_name} safely at home and understand what your results mean.`}
+        />
+        <meta
+          name="twitter:image"
+          content={test.thumbnail || "/default-thumbnail.jpg"}
+        />
+
+        {test.youtube && (
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "VideoObject",
+              name: test.test_name,
+              description: test.purpose,
+              thumbnailUrl: [
+                test.thumbnail ||
+                  "https://physio-tests-app.vercel.app/default-thumbnail.jpg",
+              ],
+              uploadDate: test.uploadDate || new Date().toISOString(),
+              contentUrl: `https://physio-tests-app.vercel.app/tests/${test.slug}`,
+              embedUrl: getEmbedUrl(test.youtube),
+              publisher: {
+                "@type": "Organization",
+                name: "Free Physio Test",
+                logo: {
+                  "@type": "ImageObject",
+                  url: "https://physio-tests-app.vercel.app/logo.png",
+                },
+              },
+            })}
+          </script>
+        )}
       </Helmet>
 
       <div className="min-h-screen bg-white font-sans text-slate-900 pb-20">
