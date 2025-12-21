@@ -10,9 +10,10 @@ import {
   ShieldAlert,
 } from "lucide-react";
 import { useParams, Link } from "react-router-dom";
-import { useTests } from "../hooks/useTestFilter"; 
+import { useTests } from "../hooks/useTestFilter";
 import { Helmet } from "react-helmet-async";
 
+// Get YouTube embed URL
 function getEmbedUrl(url) {
   if (!url) return null;
   let videoId = null;
@@ -28,6 +29,15 @@ function getEmbedUrl(url) {
   return `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`;
 }
 
+// Get related tests based on region
+function getRelatedTests(currentTest, allTests, limit = 4) {
+  if (!currentTest || !allTests) return [];
+  const related = allTests.filter(
+    (t) => t.region === currentTest.region && t.slug !== currentTest.slug
+  );
+  return related.slice(0, limit);
+}
+
 export default function SingleTestDetails() {
   const { slug } = useParams();
   const { tests, loading, error } = useTests();
@@ -40,29 +50,28 @@ export default function SingleTestDetails() {
   if (!test)
     return <p className="text-center py-10 text-gray-500">Test not found</p>;
 
-
   const embedUrl = getEmbedUrl(test.youtube);
+  const relatedTests = getRelatedTests(test, tests);
 
   return (
     <>
       <Helmet>
-        <title>{test.test_name} Self Test at Home | Free Physio Test</title>
+        <title>{`${test.test_name} - Physiotherapy Assessment Test | Free Physio Test`}</title>
         <meta
           name="description"
-          content={`Learn how to perform the ${test.test_name} safely at home and understand what your results mean.`}
+          content={`Learn how to perform the ${test.test_name}, a key ${test.region} physiotherapy assessment test, safely at home and understand the results.`}
         />
         <link
           rel="canonical"
           href={`https://physio-tests-app.vercel.app/tests/${test.slug}`}
         />
-
         <meta
           property="og:title"
-          content={`${test.test_name} Self Test at Home`}
+          content={`${test.test_name} Physiotherapy Test`}
         />
         <meta
           property="og:description"
-          content={`Learn how to perform the ${test.test_name} safely at home and understand what your results mean.`}
+          content={`Learn how to perform the ${test.test_name}, a key ${test.region} physiotherapy assessment test.`}
         />
         <meta property="og:type" content="article" />
         <meta
@@ -74,7 +83,6 @@ export default function SingleTestDetails() {
           content={test.thumbnail || "/default-thumbnail.jpg"}
         />
         <meta property="og:site_name" content="Free Physio Test" />
-
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
@@ -82,60 +90,30 @@ export default function SingleTestDetails() {
         />
         <meta
           name="twitter:description"
-          content={`Learn how to perform the ${test.test_name} safely at home and understand what your results mean.`}
+          content={`Learn how to perform the ${test.test_name} safely at home.`}
         />
         <meta
           name="twitter:image"
           content={test.thumbnail || "/default-thumbnail.jpg"}
         />
-
-        {test.youtube && (
-          <script type="application/ld+json">
-            {JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "VideoObject",
-              name: test.test_name,
-              description: test.purpose,
-              thumbnailUrl: [
-                test.thumbnail ||
-                  "https://physio-tests-app.vercel.app/default-thumbnail.jpg",
-              ],
-              uploadDate: test.uploadDate || new Date().toISOString(),
-              contentUrl: `https://physio-tests-app.vercel.app/tests/${test.slug}`,
-              embedUrl: getEmbedUrl(test.youtube),
-              publisher: {
-                "@type": "Organization",
-                name: "Free Physio Test",
-                logo: {
-                  "@type": "ImageObject",
-                  url: "https://physio-tests-app.vercel.app/logo.png",
-                },
-              },
-            })}
-          </script>
-        )}
       </Helmet>
 
       <div className="min-h-screen bg-white font-sans text-slate-900 pb-20">
-        <nav className="sticky top-0 z-30 bg-white/90 backdrop-blur-sm border-b border-slate-100">
-          <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-            <Link
-              to="/page/test-details"
-              className="flex items-center gap-2 text-slate-500 hover:text-emerald-600 transition-colors text-sm font-semibold"
-            >
-              <ChevronLeft size={18} />
-              <span>Back to Learning Library</span>
-            </Link>
-            <div className="flex items-center gap-2 text-emerald-600">
-              <BookOpen size={18} />
-              <span className="text-xs font-bold uppercase tracking-widest">
-                Patient Education
-              </span>
-            </div>
-          </div>
+        {/* Breadcrumb navigation */}
+        <nav className="text-sm py-3 px-6 text-slate-500">
+          <Link to="/" className="hover:underline">
+            Home
+          </Link>
+          &nbsp;
+          {" > "}
+          <Link to="/page/test-details" className="hover:underline">
+            Assessment Tests
+          </Link>
+          &nbsp; &gt;
+          <span className="text-slate-900 font- pl-1">{test.test_name}</span>
         </nav>
 
-        <main className="max-w-4xl mx-auto px-6 mt-12">
+        <main className="max-w-4xl mx-auto px-6 mt-6">
           <header className="mb-12">
             <div className="inline-block bg-emerald-50 text-emerald-700 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4">
               Focus Area: {test.region}
@@ -234,19 +212,38 @@ export default function SingleTestDetails() {
             </p>
           </section>
 
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 p-8 border-2 border-dashed border-slate-200 rounded-[2rem]">
-            <div className="text-center md:text-left">
-              <h4 className="font-bold text-slate-900">
-                Want to learn more about {test.region} health?
-              </h4>
-              <p className="text-sm text-slate-500">
-                Check out our community-driven guides.
-              </p>
-            </div>
-            <button className="bg-emerald-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-200">
-              Browse All Guides
-            </button>
-          </div>
+          {relatedTests.length > 0 && (
+            <section className="mb-16">
+              <h3 className="text-2xl font-bold mb-6">
+                Other {test.region} Tests
+              </h3>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {relatedTests.map((related) => (
+                  <li key={related.slug}>
+                    <Link
+                      to={`/tests/${related.slug}`}
+                      className="block p-4 bg-slate-50 border border-slate-100 rounded-xl hover:shadow-lg hover:bg-emerald-50 transition-all"
+                    >
+                      <h4 className="font-semibold text-slate-900">
+                        {related.test_name}
+                      </h4>
+                      <p className="text-sm text-slate-500 truncate">
+                        {related.purpose}
+                      </p>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <div className="text-center mt-6">
+                <Link
+                  to="/assessment-tests"
+                  className="text-emerald-600 font-bold hover:underline"
+                >
+                  Browse All Assessment Tests
+                </Link>
+              </div>
+            </section>
+          )}
 
           <footer className="mt-24 pt-12 border-t border-slate-100 text-center">
             <p className="text-xs text-slate-400 max-w-xl mx-auto leading-loose italic">
