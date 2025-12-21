@@ -51,15 +51,30 @@
     <link rel="icon" type="image/png" sizes="256x256" href="/favicon_256x256.png" />
         <meta property="og:site_name" content="Physio Tests App" />
 
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "MedicalWebPage",
-        "name": "Physiotherapy Assessment Tests",
-        "url": "https://physio-tests-app.vercel.app",
-        "description": "A web app providing standardized physiotherapy assessment tests."
-      }
-    </script>
+        <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Organization",
+                "name": "Physio Tests App",
+                "url": "https://physio-tests-app.vercel.app",
+                "logo": "https://physio-tests-app.vercel.app/favicon_128x128.png"
+              },
+              {
+                "@type": "MedicalWebPage",
+                "name": "Physiotherapy Assessment Tests",
+                "url": "https://physio-tests-app.vercel.app",
+                "description": "A web app providing standardized physiotherapy assessment tests.",
+                "mainEntityOfPage": {
+                  "@type": "WebPage",
+                  "@id": "https://physio-tests-app.vercel.app"
+                }
+              }
+            ]
+          }
+          </script>
+          
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RNMBZBPMKX"></script>
 <!-- Google Analytics 4 -->
