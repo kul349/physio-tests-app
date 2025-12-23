@@ -8,18 +8,13 @@ const __dirname = path.dirname(__filename);
 
 const BASE_URL = "https://physio-tests-app.vercel.app";
 
-// Load tests
 const testsPath = path.join(__dirname, "../public/physio-test.json");
 const tests = JSON.parse(fs.readFileSync(testsPath, "utf-8"));
 
-// Debug (KEEP ONCE)
-console.log("Blogs:", blogs.length);
-console.log("Tests:", tests.length);
 
-// Helpers
 const getLastMod = () => new Date().toISOString().split("T")[0];
 
-const buildUrlEntry = ({ url }) => `
+const buildUrlEntry = (url) => `
   <url>
     <loc>${BASE_URL}${url}</loc>
     <lastmod>${getLastMod()}</lastmod>
@@ -33,15 +28,21 @@ let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 `;
 
 blogs.forEach((b) => {
-  if (b.slug) sitemap += buildUrlEntry({ url: `/blog/${b.slug}` });
+  if (b.slug) sitemap += buildUrlEntry(`/blog/${b.slug}`);
 });
 
 tests.forEach((t) => {
-  if (t.slug) sitemap += buildUrlEntry({ url: `/tests/${t.slug}` });
+  if (t.slug) sitemap += buildUrlEntry(`/tests/${t.slug}`);
 });
 
 sitemap += "\n</urlset>";
 
-fs.writeFileSync(path.join(__dirname, "../public/sitemap.xml"), sitemap.trim());
+const srcSitemapPath = path.join(__dirname, "sitemap.xml");
+fs.writeFileSync(srcSitemapPath, sitemap.trim());
 
-console.log("✅ Sitemap generated successfully");
+const publicSitemapPath = path.join(__dirname, "../../public/sitemap.xml");
+fs.copyFileSync(srcSitemapPath, publicSitemapPath);
+
+fs.unlinkSync(srcSitemapPath);
+
+console.log("✅ Sitemap generated and copied to public/");
