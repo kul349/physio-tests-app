@@ -1,66 +1,77 @@
+
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { blogs } from "./data/blog.js";
+import { blogs } from "./data/blog.js"; 
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const PROJECT_ROOT = path.resolve(__dirname, "..");
-const TESTS_JSON_PATH = path.join(PROJECT_ROOT, "public", "physio-test.json");
-const SITEMAP_DESTINATION = path.join(PROJECT_ROOT, "public", "sitemap.xml");
-
 const BASE_URL = "https://physio-tests-app.vercel.app";
 
-const slugify = (text) =>
-  text
-    ?.toString()
-    .toLowerCase()
-    .trim()
-    .replace(/\s+/g, "-")
-    .replace(/[^\w-]+/g, "")
-    .replace(/--+/g, "-") || "test";
+const testsPath = path.join(__dirname, "../public/physio-test.json");
+if (!fs.existsSync(testsPath)) {
+  console.error("❌ Error: public/physio-test.json not found!");
+  process.exit(1);
+}
+
+const testsRaw = fs.readFileSync(testsPath, "utf-8");
+const tests = JSON.parse(testsRaw);
+
+const staticPages = [
+  { url: "/", priority: 1.0, changefreq: "weekly" },
+  { url: "/page/test-details", priority: 0.9, changefreq: "weekly" },
+  { url: "/page/assessment-stage", priority: 0.9, changefreq: "weekly" },
+  { url: "/page/about-us", priority: 0.8, changefreq: "weekly" },
+  { url: "/page/blog", priority: 0.8, changefreq: "weekly" },
+];
 
 const getLastMod = () => new Date().toISOString().split("T")[0];
 
-const buildUrlEntry = (url, priority, freq) => `
+const buildUrlEntry = ({ url, priority, changefreq }) => `
   <url>
     <loc>${BASE_URL}${url}</loc>
-    <priority>${priority}</priority>
-    <changefreq>${freq}</changefreq>
     <lastmod>${getLastMod()}</lastmod>
-  </url>`;
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>
+  </url>
+`;
 
-try {
-  console.log("Reading tests from:", TESTS_JSON_PATH);
-  const tests = JSON.parse(fs.readFileSync(TESTS_JSON_PATH, "utf-8"));
+let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+`;
 
-  let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
+staticPages.forEach((page) => {
+  sitemap += buildUrlEntry(page);
+});
 
-  sitemap += buildUrlEntry("/", 1.0, "weekly");
-  sitemap += buildUrlEntry("/page/test-details", 0.9, "weekly");
-  sitemap += buildUrlEntry("/page/about-us", 0.8, "weekly");
-  sitemap += buildUrlEntry("/page/blog", 0.8, "weekly");
+blogs.forEach((blog) => {
+  if (!blog.slug) return;
 
-  blogs.forEach(
-    (b) => (sitemap += buildUrlEntry(`/blog/${b.slug}`, 0.7, "daily"))
-  );
-
-  console.log(`Processing ${tests.length} tests...`);
-  tests.forEach((test) => {
-    const testSlug = test.slug || slugify(test.name || test.title);
-    sitemap += buildUrlEntry(`/tests/${testSlug}`, 0.7, "daily");
+  sitemap += buildUrlEntry({
+    url: `/blog/${blog.slug}`,
+    priority: 0.7,
+    changefreq: "daily",
   });
+});
 
-  sitemap += "\n</urlset>";
+tests.forEach((test) => {
+  if (!test.slug) return;
 
-  fs.writeFileSync(SITEMAP_DESTINATION, sitemap.trim(), "utf8");
+  sitemap += buildUrlEntry({
+    url: `/tests/${test.slug}`,
+    priority: 0.7,
+    changefreq: "daily",
+  });
+});
 
-  console.log("-----------------------------------------");
-  console.log("✅ SUCCESS!");
-  console.log("File written to:", SITEMAP_DESTINATION);
-  console.log("Total URLs included:", 4 + blogs.length + tests.length);
-} catch (error) {
-  console.error("❌ SITEMAP FAILED:", error.message);
-}
+sitemap += "\n</urlset>";
+
+const sitemapPath = path.join(__dirname, "../public/sitemap.xml");
+fs.writeFileSync(sitemapPath, sitemap.trim());
+
+console.log(
+  `✅ sitemap.xml generated successfully with ${
+    staticPages.length + blogs.length + tests.length
+  } URLs`
+);
