@@ -1,20 +1,15 @@
 import fs from "fs";
 import path from "path";
+import { blogs } from "./data/blog.js";
 
-// --- DATA SOURCE (Adjust this path if necessary) ---
-import { blogs } from "../src/data/blog.js";
+const __dirname = path.resolve();
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
-// This ensures we are pointing to the project ROOT, then into /public
-const PROJECT_ROOT = path.resolve(__dirname, "..");
+const PROJECT_ROOT = __dirname;
 const TESTS_JSON_PATH = path.join(PROJECT_ROOT, "public", "physio-test.json");
 const SITEMAP_DESTINATION = path.join(PROJECT_ROOT, "public", "sitemap.xml");
-
 const BASE_URL = "https://physio-tests-app.vercel.app";
 
-// --- HELPERS ---
 const slugify = (text) =>
   text
     ?.toString()
