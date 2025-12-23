@@ -128,6 +128,7 @@ const HomePage = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-4 text-white group"
+                        aria-label="Watch our introductory video on physiotherapy assessment tests"
                       >
                         <div className="relative w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center">
                           <div className="absolute inset-0 rounded-full border border-white/40" />
@@ -148,7 +149,7 @@ const HomePage = () => {
                 <div className="w-full md:w-1/2 relative overflow-hidden bg-slate-100 h-[40vh] sm:h-[45vh] md:h-full">
                   <img
                     src={slide.image}
-                    alt={`Physiotherapy test education-${slide.title}`}
+                    alt={`alt={Patient learning about ${slide.label} in physiotherapy}`}
                     className={`absolute inset-0 w-full h-full object-cover transition-transform duration-[6000ms] ease-out ${
                       currentSlide === index ? "scale-110" : "scale-100"
                     }`}
