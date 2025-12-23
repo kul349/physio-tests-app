@@ -8,31 +8,23 @@ const __dirname = path.dirname(__filename);
 
 const BASE_URL = "https://physio-tests-app.vercel.app";
 
+// Load tests
 const testsPath = path.join(__dirname, "../public/physio-test.json");
-if (!fs.existsSync(testsPath)) {
-  console.error("❌ Error: public/physio-test.json not found!");
-  process.exit(1);
-}
+const tests = JSON.parse(fs.readFileSync(testsPath, "utf-8"));
 
-const testsRaw = fs.readFileSync(testsPath, "utf-8");
-const tests = JSON.parse(testsRaw);
+// Debug (KEEP ONCE)
+console.log("Blogs:", blogs.length);
+console.log("Tests:", tests.length);
 
-const staticPages = [
-  { url: "/", priority: 1.0, changefreq: "weekly" },
-  { url: "/page/test-details", priority: 0.9, changefreq: "weekly" },
-  { url: "/page/assessment-stage", priority: 0.9, changefreq: "weekly" },
-  { url: "/page/about-us", priority: 0.8, changefreq: "weekly" },
-  { url: "/page/blog", priority: 0.8, changefreq: "weekly" },
-];
-
+// Helpers
 const getLastMod = () => new Date().toISOString().split("T")[0];
 
-const buildUrlEntry = ({ url, priority, changefreq }) => `
+const buildUrlEntry = ({ url }) => `
   <url>
     <loc>${BASE_URL}${url}</loc>
     <lastmod>${getLastMod()}</lastmod>
-    <changefreq>${changefreq}</changefreq>
-    <priority>${priority}</priority>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
   </url>
 `;
 
@@ -40,37 +32,16 @@ let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 `;
 
-staticPages.forEach((page) => {
-  sitemap += buildUrlEntry(page);
+blogs.forEach((b) => {
+  if (b.slug) sitemap += buildUrlEntry({ url: `/blog/${b.slug}` });
 });
 
-blogs.forEach((blog) => {
-  if (!blog.slug) return;
-
-  sitemap += buildUrlEntry({
-    url: `/blog/${blog.slug}`,
-    priority: 0.7,
-    changefreq: "daily",
-  });
-});
-
-tests.forEach((test) => {
-  if (!test.slug) return;
-
-  sitemap += buildUrlEntry({
-    url: `/tests/${test.slug}`,
-    priority: 0.7,
-    changefreq: "daily",
-  });
+tests.forEach((t) => {
+  if (t.slug) sitemap += buildUrlEntry({ url: `/tests/${t.slug}` });
 });
 
 sitemap += "\n</urlset>";
 
-const sitemapPath = path.join(__dirname, "../public/sitemap.xml");
-fs.writeFileSync(sitemapPath, sitemap.trim());
+fs.writeFileSync(path.join(__dirname, "../public/sitemap.xml"), sitemap.trim());
 
-console.log(
-  `✅ sitemap.xml generated successfully with ${
-    staticPages.length + blogs.length + tests.length
-  } URLs`
-);
+console.log("✅ Sitemap generated successfully");
