@@ -1,6 +1,5 @@
 import fs from "fs";
 import path from "path";
-import { fileURLToPath } from "url";
 
 // --- DATA SOURCE (Adjust this path if necessary) ---
 import { blogs } from "../src/data/blog.js";
