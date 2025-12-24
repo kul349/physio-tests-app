@@ -104,7 +104,7 @@ export default function PhysioFAQ() {
   };
 
   return (
-    <section id="faq" className="py-24 bg-white">
+    <section id="faq" className="py-24 bg-emerald-50/30 rounded-3xl">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
