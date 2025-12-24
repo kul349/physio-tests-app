@@ -1,6 +1,6 @@
 import React, { useState, useEffect,useRef } from "react";
 import { ArrowRight, Play } from "lucide-react";
-
+import PhysioFAQ from "../layouts/FAQ";
 import Information from "../layouts/Information"
 import DownloadSection from "../layouts/DownloadSection"
 import CommonConditionsSection from "../layouts/CommonConditionsSection"
@@ -170,6 +170,7 @@ const HomePage = () => {
           <Information />
           <CommonConditionsSection />
           <DownloadSection />
+          <PhysioFAQ/>
         </div>
       </div>
     </>
