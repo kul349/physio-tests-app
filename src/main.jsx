@@ -1,4 +1,4 @@
-import { ViteSSG } from "vite-ssg/react";
+import { ViteSSG } from "vite-ssg/react/index.js";
 import { HelmetProvider } from "react-helmet-async";
 import AppRoutes from "./routes/AppRoutes";
 import MainLayout from "./layouts/MainLayout";
