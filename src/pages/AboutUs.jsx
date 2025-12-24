@@ -246,7 +246,6 @@ function AboutUs() {
           </div>
         </section>
 
-        {/* Feature Highlights - User Friendly */}
         <section className="py-24 bg-dark-gray-1 rounded-t-[3rem] md:rounded-t-[5rem] px-6 text-white">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
@@ -332,18 +331,7 @@ function AboutUs() {
               qualified health provider with any questions you may have
               regarding a medical condition.
             </p>
-            <div className="mt-12 pt-8 border-t border-slate-50 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-300 text-[10px] uppercase font-bold tracking-widest">
-              <div>&copy; 2024 OrthoCheck for Patients</div>
-              <div className="flex gap-8">
-                <a href="#" className="hover:text-emerald-600">
-                  Patient Privacy
-                </a>
-                <a href="#" className="hover:text-emerald-600">
-                  User Terms
-                </a>
-              </div>
-            </div>
-          </div>
+           </div>
         </footer>
       </div>
     </>
