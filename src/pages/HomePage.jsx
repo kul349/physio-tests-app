@@ -80,6 +80,9 @@ const HomePage = () => {
           property="og:image"
           content="https://physio-tests-app.vercel.app/img-slider-1.webp"
         />
+        <meta name="author" content="Supra" />
+        <meta name="publisher" content="Physio App" />
+        <meta name="robots" content="index, follow" />
       </Helmet>
 
       <h1 className="sr-only">

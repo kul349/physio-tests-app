@@ -62,13 +62,17 @@ function TestDetailPage() {
           property="og:url"
           content="https://physio-tests-app.vercel.app/page/test-details"
         />
+        <meta name="author" content="Supra" />
+        <meta name="publisher" content="Physio App" />
+        <meta name="robots" content="index, follow" />
+
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
           content="https://physio-tests-app.vercel.app/img-slider-1.webp"
         />
       </Helmet>
-      
+
       <div className="min-h-screen bg-[#F8FAFC] pb-20 font-sans">
         <div className="bg-white border-b borde-slate-200 pt-16 pb-12 px-6">
           <div className="max-w-5xl mx-auto text-center ">

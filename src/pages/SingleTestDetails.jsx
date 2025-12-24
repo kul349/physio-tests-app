@@ -94,8 +94,11 @@ export default function SingleTestDetails() {
         />
         <meta
           name="twitter:image"
-          content={test.thumbnail || "/default-thumbnail.jpg"}
+          content={test.thumbnail || "/img-post3-600x438.webp"}
         />
+        <meta name="author" content="Supra" />
+        <meta name="publisher" content="Physio App" />
+        <meta name="robots" content="index, follow" />
       </Helmet>
 
       <div className="min-h-screen bg-white font-sans text-slate-900 pb-20">
