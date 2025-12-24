@@ -34,58 +34,41 @@ export default function BlogPage() {
   return (
     <>
       <Helmet>
-        <title>{`${blogs.title} | Physiotherapy Blog & Guides`}</title>
+        <title>Physiotherapy Blog & Guides | Free Physio Blog</title>
         <meta
           name="description"
-          content={
-            blogs.excerpt ||
-            "Read evidence-based physiotherapy guides and clinical protocols."
-          }
+          content="Read evidence-based physiotherapy guides, clinical protocols, and research summaries for patients and clinicians."
         />
-        <link
-          rel="canonical"
-          href={`https://physio-tests-app.vercel.app/blog/${blogs.slug}`}
-        />
+        <link rel="canonical" href="https://physio-tests-app.vercel.app/blog" />
 
         {/* Open Graph */}
-        <meta property="og:title" content={blogs.title} />
+        <meta property="og:title" content="Physiotherapy Blog & Guides" />
         <meta
           property="og:description"
-          content={
-            blogs.excerpt ||
-            "Read evidence-based physiotherapy guides and clinical protocols."
-          }
+          content="Read evidence-based physiotherapy guides, clinical protocols, and research summaries for patients and clinicians."
         />
-        <meta property="og:type" content="article" />
+        <meta property="og:type" content="website" />
         <meta
           property="og:url"
-          content={`https://physio-tests-app.vercel.app/blog/${blogs.slug}`}
+          content="https://physio-tests-app.vercel.app/blog"
         />
-        <meta
-          property="og:image"
-          content={blogs.thumbnail || "/default-blog-thumbnail.jpg"}
-        />
+        <meta property="og:image" content="/default-blog-thumbnail.jpg" />
         <meta property="og:site_name" content="Free Physio Blog" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={blogs.title} />
+        <meta name="twitter:title" content="Physiotherapy Blog & Guides" />
         <meta
           name="twitter:description"
-          content={
-            blogs.excerpt ||
-            "Read evidence-based physiotherapy guides and clinical protocols."
-          }
+          content="Read evidence-based physiotherapy guides, clinical protocols, and research summaries for patients and clinicians."
         />
-        <meta
-          name="twitter:image"
-          content={blogs.thumbnail || "/img-slider-1.webp"}
-        />
+        <meta name="twitter:image" content="/img-slider-1.webp" />
 
         {/* Author & Publisher */}
-        <meta name="author" content={blogs.author || "Supra"} />
+        <meta name="author" content="Supra" />
         <meta name="publisher" content="Physio App" />
         <meta name="robots" content="index, follow" />
       </Helmet>
+
       <div className="min-h-screen bg-white font-sans text-slate-900 selection:bg-emerald-100">
         {/* Hero Header */}
         <header className="relative py-24 overflow-hidden bg-slate-50 border-b border-emerald-100/50">
