@@ -1,18 +1,22 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import prerender from "vite-plugin-prerender";
+import { PrerendererPlugin } from "@prerenderer/vite-plugin";
 
 export default defineConfig({
   plugins: [
     react(),
-    prerender({
+    PrerendererPlugin({
       routes: [
         "/",
-        "/page/test-details",
-        "/page/assessment-stage",
         "/page/blog",
         "/page/about-us",
+        "/page/assessment-stage",
+        "/page/test-details",
       ],
+      renderer: "@prerenderer/renderer-puppeteer",
+      rendererOptions: {
+        renderAfterDocumentEvent: "render-event",
+      },
     }),
   ],
 });
