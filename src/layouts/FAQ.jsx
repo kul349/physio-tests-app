@@ -1,31 +1,39 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { HelpCircle, Plus, Minus, ArrowRight } from "lucide-react";
+import {
+  HelpCircle,
+  Plus,
+  Minus,
+  ArrowRight,
+  PlayCircle,
+  BookOpen,
+  ShieldCheck,
+} from "lucide-react";
 
 const faqs = [
   {
-    id: "clinical-accuracy",
-    question: "How are these clinical protocols verified?",
+    id: "getting-started",
+    question: "How do I know which test is right for me?",
     answer:
-      "Every protocol in our library undergoes a double-blind peer review by senior clinical specialists. We reference the latest meta-analyses and systematic reviews to ensure all assessment tests meet current gold-standard sensitivity and specificity requirements.",
+      "With over 150 tests available, we recommend starting by selecting the body part that is bothering you. Each test includes a 'Difficulty Level' and 'Purpose' description to help you understand if it's appropriate for your current level of mobility and comfort.",
   },
   {
-    id: "offline-access",
-    question: "Can I use these guides during patient consultations?",
+    id: "video-demonstrations",
+    question: "Are the video demonstrations easy to follow?",
     answer:
-      "Yes. Use the 'Export Research' feature to generate a high-quality PDF. Many clinicians keep these on their tablets for quick reference during orthopedic assessments or to print exercise sheets directly for patients.",
+      "Absolutely. Every test comes with a high-definition video showing the movement from multiple angles. We've included voice-over instructions that highlight exactly what to feel for and common mistakes to avoid, ensuring you perform every movement safely at home.",
   },
   {
-    id: "updates",
-    question: "How often is the research database updated?",
+    id: "medical-advice",
+    question: "Can these tests replace a doctor's visit?",
     answer:
-      "Our clinical research team monitors major physiotherapy journals monthly. When new evidence suggests a change in a rehabilitation timeline or a more effective assessment cluster, we update the portal immediately.",
+      "These tests are educational tools designed to help you understand your body and improve your movement knowledge. While they provide great insights, they are not a medical diagnosis. If you're experiencing sharp pain or have a recent injury, always consult with a licensed professional.",
   },
   {
-    id: "certification",
-    question: "Do these guides count towards CPD/CEU credits?",
+    id: "knowledge-growth",
+    question: "How can I track my learning progress?",
     answer:
-      "While the guides serve as educational resources, we are currently working on a 'Verified Learning' module that will allow you to take short quizzes after reading to earn continuing professional development certificates.",
+      "As you read through the tests and watch the videos, you can mark them as 'Mastered'. This helps you build a personal library of movements and tests that you understand well, allowing you to gradually expand your knowledge across all 150+ available resources.",
   },
 ];
 
@@ -79,7 +87,7 @@ const AccordionItem = ({ faq, isOpen, toggle }) => {
 };
 
 export default function PhysioFAQ() {
-  const [openFaq, setOpenFaq] = useState("clinical-accuracy");
+  const [openFaq, setOpenFaq] = useState("getting-started");
 
   return (
     <section id="faq" className="py-24 bg-white">
@@ -90,27 +98,49 @@ export default function PhysioFAQ() {
             <div className="sticky top-32">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full text-xs font-black uppercase tracking-widest mb-6">
                 <HelpCircle className="w-4 h-4" />
-                Knowledge Base
+                Common Questions
               </div>
               <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-8 leading-tight">
-                Need Help? We've Got{" "}
-                <span className="text-emerald-600">Answers</span>
+                Empower Your <span className="text-emerald-600">Recovery</span>{" "}
+                Journey
               </h2>
               <p className="text-lg text-slate-500 font-medium leading-relaxed mb-10">
-                Explore our most commonly asked questions regarding clinical
-                accuracy, protocol usage, and licensing for your practice.
+                Unlock the full potential of our 150+ movement tests and video
+                library. Everything you need to know about starting your
+                educational journey.
               </p>
+
+              <div className="space-y-4 mb-10">
+                <div className="flex items-center gap-3 text-slate-700 font-bold">
+                  <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600">
+                    <PlayCircle className="w-4 h-4" />
+                  </div>
+                  150+ HD Video Tutorials
+                </div>
+                <div className="flex items-center gap-3 text-slate-700 font-bold">
+                  <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600">
+                    <BookOpen className="w-4 h-4" />
+                  </div>
+                  Detailed Self-Assessment Guides
+                </div>
+                <div className="flex items-center gap-3 text-slate-700 font-bold">
+                  <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600">
+                    <ShieldCheck className="w-4 h-4" />
+                  </div>
+                  Safe, Science-Backed Methods
+                </div>
+              </div>
+
               <div className="p-8 bg-emerald-600 rounded-[2rem] text-white shadow-xl shadow-emerald-100 relative overflow-hidden group">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-110 transition-transform duration-500" />
                 <h4 className="text-xl font-bold mb-2 relative z-10">
-                  Still have questions?
+                  Need technical help?
                 </h4>
                 <p className="text-emerald-50 text-sm mb-6 opacity-90 relative z-10">
-                  Our clinical support team is available for deep-dive research
-                  inquiries.
+                  Can't access a video or have a question about your account?
                 </p>
                 <button className="flex items-center gap-2 text-white font-black text-sm group relative z-10">
-                  Contact Clinician Support{" "}
+                  Talk to our Support Team{" "}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
