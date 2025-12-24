@@ -1,16 +1,34 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ViteSSG } from "vite-ssg/react";
+import { HelmetProvider } from "react-helmet-async";
+import AppRoutes from "./routes/AppRoutes";
+import MainLayout from "./layouts/MainLayout";
 import "./index.css";
-import App from "./App.jsx";
 
-// Create a React Query client
-const queryClient = new QueryClient();
+// Wrap each page in MainLayout
+function LayoutWrapper(Page) {
+  return function WrappedPage(props) {
+    return (
+      <MainLayout>
+        <Page {...props} />
+      </MainLayout>
+    );
+  };
+}
 
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <App />
-    </QueryClientProvider>
-  </StrictMode>
+const ssgRoutes = AppRoutes.map((r) => ({
+  ...r,
+  component: LayoutWrapper(r.component),
+}));
+
+export const createApp = ViteSSG(
+  ({ app }) => {
+    app.use(({ app: AppComponent }) => (
+      <HelmetProvider>
+        <AppComponent />
+      </HelmetProvider>
+    ));
+  },
+  {
+    routes: ssgRoutes,
+  }
 );
