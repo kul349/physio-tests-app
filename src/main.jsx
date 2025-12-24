@@ -4,7 +4,6 @@ import AppRoutes from "./routes/AppRoutes";
 import MainLayout from "./layouts/MainLayout";
 import "./index.css";
 
-// Wrap each page in MainLayout
 function LayoutWrapper(Page) {
   return function WrappedPage(props) {
     return (
