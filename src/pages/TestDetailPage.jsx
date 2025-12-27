@@ -1,6 +1,6 @@
 import { useTests } from "../hooks/useTestFilter";
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 import {
@@ -21,7 +21,6 @@ function TestDetailPage() {
     setPrevSearch(search);
     setVisibleCount(20);
   }
-  const {testSlug}=useParams();
   
   if (loading) {
     return (
@@ -47,11 +46,11 @@ function TestDetailPage() {
         </title>
         <meta
           name="description"
-          content="Explore our physiotherapy test library. Learn about common physical assessments, watch demonstration videos, and understand step-by-step instructions."
+          content="Quickly find and master 100+ physiotherapy assessment tests. Featuring step-by-step guides, video demonstrations, and simple clinical explanations for students and patients."
         />
         <link
           rel="canonical"
-          href={`https://physio-tests-app.vercel.app/page/test-details/${testSlug}`}
+          href="https://physio-tests-app.vercel.app/page/test-details"
         />
 
         <meta property="og:title" content="Physiotherapy Test Library" />
