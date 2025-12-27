@@ -1,6 +1,6 @@
 import { useTests } from "../hooks/useTestFilter";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 import {
@@ -21,6 +21,7 @@ function TestDetailPage() {
     setPrevSearch(search);
     setVisibleCount(20);
   }
+  const {testSlug}=useParams();
   
   if (loading) {
     return (
@@ -50,7 +51,7 @@ function TestDetailPage() {
         />
         <link
           rel="canonical"
-          href="https://physio-tests-app.vercel.app/page/test-details"
+          href={`https://physio-tests-app.vercel.app/page/test-details/${testSlug}`}
         />
 
         <meta property="og:title" content="Physiotherapy Test Library" />

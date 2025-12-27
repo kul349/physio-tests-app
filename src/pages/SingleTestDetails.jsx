@@ -99,6 +99,31 @@ export default function SingleTestDetails() {
         <meta name="author" content="Supra" />
         <meta name="publisher" content="Physio App" />
         <meta name="robots" content="index, follow" />
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: `What is the starting position for the ${test.test_name}?`,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: test.starting_position,
+                },
+              },
+              {
+                "@type": "Question",
+                name: `What indicates a positive result for the ${test.test_name}?`,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: test.positive_test_criteria,
+                },
+              },
+            ],
+          })}
+        </script>
       </Helmet>
 
       <div className="min-h-screen bg-white font-sans text-slate-900 pb-20">
