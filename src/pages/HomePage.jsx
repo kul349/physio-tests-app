@@ -15,18 +15,16 @@ const HomePage = () => {
   const slides = [
     {
       id: 1,
-      image:
-        "img-slider-1.webp",
+      image: "img-slider-1.webp",
       label: "Open Learning Library",
-      title: "Understanding your body shouldn't be a mystery.",
+      title: "Demystifying Physiotherapy Assessment Tests.",
       description:
         "We've simplified physiotherapy tests so you can understand what happens during your check-up and what your results actually mean.",
-      bgColor: "#4f7661", // Emerald 600
+      bgColor: "#4f7661", 
     },
-    { 
+    {
       id: 2,
-      image:
-        "img-service2.webp",
+      image: "img-service2.webp",
       label: "Patient Education",
       title: "Simple guides for common clinical tests.",
       description:
@@ -35,13 +33,12 @@ const HomePage = () => {
     },
     {
       id: 3,
-      image:
-        "scroll2.webp",
+      image: "scroll2.webp",
       label: "Empower Your Recovery",
       title: "Be an active partner in your physical healing.",
       description:
         "Knowledge is the first step to recovery. Explore our library to feel more confident and prepared for your next appointment.",
-      bgColor: "#4f7661", // Emerald 700
+      bgColor: "#4f7661", 
     },
   ];
 
@@ -62,7 +59,7 @@ const HomePage = () => {
         </title>
         <meta
           name="description"
-          content="Learn and understand physiotherapy tests at home. Simple explanations, videos, and self-tests designed for patients."
+          content="Empowering patients to understand their recovery. Access simple guides, video demonstrations, and plain-English explanations for common physiotherapy clinical tests"
         />
         <link rel="canonical" href="https://physio-tests-app.vercel.app/" />
 
@@ -83,6 +80,20 @@ const HomePage = () => {
         <meta name="author" content="Supra" />
         <meta name="publisher" content="Physio App" />
         <meta name="robots" content="index, follow" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "Physio Tests for Patients",
+            url: "https://physio-tests-app.vercel.app/",
+            potentialAction: {
+              "@type": "SearchAction",
+              target:
+                "https://physio-tests-app.vercel.app/page/test-details?search={search_term_string}",
+              "query-input": "required name=search_term_string",
+            },
+          })}
+        </script>
       </Helmet>
 
       <h1 className="sr-only">
@@ -152,7 +163,7 @@ const HomePage = () => {
                 <div className="w-full md:w-1/2 relative overflow-hidden bg-slate-100 h-[40vh] sm:h-[45vh] md:h-full">
                   <img
                     src={slide.image}
-                    alt={`alt={Patient learning about ${slide.label} in physiotherapy}`}
+                    alt={`{Patient learning about ${slide.label} in physiotherapy}`}
                     className={`absolute inset-0 w-full h-full object-cover transition-transform duration-[6000ms] ease-out ${
                       currentSlide === index ? "scale-110" : "scale-100"
                     }`}
@@ -170,7 +181,7 @@ const HomePage = () => {
           <Information />
           <CommonConditionsSection />
           <DownloadSection />
-          <PhysioFAQ/>
+          <PhysioFAQ />
         </div>
       </div>
     </>
