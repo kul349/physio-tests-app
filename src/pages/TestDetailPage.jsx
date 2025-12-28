@@ -48,13 +48,8 @@ function TestDetailPage() {
           content="Browse a complete library of physiotherapy assessment tests with clear explanations, clinical purpose, and video demonstrations."
         />
 
-        <link
-          rel="canonical"
-          key="canonical-url"
-          href={`https://physio-tests-app.vercel.app/tests/${tests.slug}`}
-        />
+        
 
-        {/* Correct OG */}
         <meta property="og:title" content="Physiotherapy Assessment Tests" />
         <meta
           property="og:description"
@@ -76,7 +71,6 @@ function TestDetailPage() {
           content="https://physio-tests-app.vercel.app/img-slider-1.webp"
         />
 
-        {/* IMPORTANT */}
         <meta name="robots" content="index, follow" />
       </Helmet>
 
