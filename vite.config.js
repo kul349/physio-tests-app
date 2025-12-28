@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import prerender from "vite-plugin-prerender-2"; // Change this line
+import prerender from "@prerenderer/vite-plugin";
+import puppeteer from "@prerenderer/renderer-puppeteer";
 import path from "path";
 import fs from "fs";
 import { fileURLToPath } from "url";
@@ -8,7 +9,6 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Dynamic Route Logic (Keep this exactly as we wrote it before)
 const getDynamicRoutes = () => {
   const routes = ["/", "/page/blog", "/page/test-details"];
   try {
@@ -19,17 +19,17 @@ const getDynamicRoutes = () => {
         if (test.slug) routes.push(`/tests/${test.slug}`);
       });
     }
+
     const blogDataPath = path.resolve(__dirname, "src/data/blog.js");
     if (fs.existsSync(blogDataPath)) {
-      const blogFileContent = fs.readFileSync(blogDataPath, "utf-8");
-      const slugRegex = /slug:\s*["']([^"']+)["']/g;
-      let match;
-      while ((match = slugRegex.exec(blogFileContent)) !== null) {
+      const blogContent = fs.readFileSync(blogDataPath, "utf-8");
+      const slugMatches = blogContent.matchAll(/slug:\s*["']([^"']+)["']/g);
+      for (const match of slugMatches) {
         routes.push(`/blog/${match[1]}`);
       }
     }
-  } catch (error) {
-    console.error("❌ Route Fetch Error:", error);
+  } catch (e) {
+    console.error("❌ Pre-render Route Error:", e);
   }
   return routes;
 };
@@ -38,12 +38,15 @@ export default defineConfig({
   plugins: [
     react(),
     prerender({
-      staticDir: path.join(__dirname, "dist"),
       routes: getDynamicRoutes(),
-      rendererConfig: {
-        // This is key for your SEO tags to be captured correctly
+      renderer: new puppeteer({
         renderAfterDocumentEvent: "custom-render-trigger",
-      },
+        launchOptions: {
+          headless: "new",
+          args: ["--no-sandbox", "--disable-setuid-sandbox"],
+        },
+      }),
+      staticDir: path.join(__dirname, "dist"),
     }),
   ],
 });
