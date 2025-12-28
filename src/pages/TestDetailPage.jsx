@@ -41,36 +41,37 @@ function TestDetailPage() {
   return (
     <>
       <Helmet>
-        <title>
-          Physiotherapy Special Tests Library | Clinical Assessment Guides
-        </title>
+        <title>Physiotherapy Assessment Tests | Physio Tests App</title>
+
         <meta
           name="description"
-          content="Quickly find and master 100+ physiotherapy assessment tests. Featuring step-by-step guides, video demonstrations, and simple clinical explanations for students and patients."
-        />
-        <link
-          rel="canonical"
-          href="https://physio-tests-app.vercel.app/page/test-details"
+          content="Browse a complete library of physiotherapy assessment tests with clear explanations, clinical purpose, and video demonstrations."
         />
 
-        <meta property="og:title" content="Physiotherapy Test Library" />
+        {/* Correct canonical */}
+        <link
+          rel="canonical"
+          href="https://physio-tests-app.vercel.app/tests"
+        />
+
+        {/* Correct OG */}
+        <meta property="og:title" content="Physiotherapy Assessment Tests" />
         <meta
           property="og:description"
-          content="Explore our physiotherapy test library with videos and step-by-step instructions."
+          content="Explore a comprehensive physiotherapy test library with step-by-step clinical guides."
         />
         <meta
           property="og:url"
-          content="https://physio-tests-app.vercel.app/page/test-details"
+          content="https://physio-tests-app.vercel.app/tests"
         />
-        <meta name="author" content="Supra" />
-        <meta name="publisher" content="Physio App" />
-        <meta name="robots" content="index, follow" />
-
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
           content="https://physio-tests-app.vercel.app/img-slider-1.webp"
         />
+
+        {/* IMPORTANT */}
+        <meta name="robots" content="index, follow" />
       </Helmet>
 
       <div className="min-h-screen bg-[#F8FAFC] pb-20 font-sans">
@@ -99,7 +100,6 @@ function TestDetailPage() {
                 className="block w-full pl-12 pr-4 py-4 bg-white border-2 border-slate-100 rounded-2xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-emerald-500/10 focus:border-emerald-500 transition-all shadow-sm"
               />
             </div>
-            
           </div>
         </div>
 
