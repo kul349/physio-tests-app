@@ -63,7 +63,6 @@ export default function BlogPage() {
         />
         <meta name="twitter:image" content="/img-slider-1.webp" />
 
-        {/* Author & Publisher */}
         <meta name="author" content="Supra" />
         <meta name="publisher" content="Physio App" />
         <meta name="robots" content="index, follow" />
@@ -241,40 +240,8 @@ export default function BlogPage() {
           </div>
         </section>
 
-        {/* Newsletter Section */}
-        <section className="bg-slate-900 py-24 px-6 overflow-hidden relative">
-          <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
-          <div className="max-w-4xl mx-auto relative z-10 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Stay Updated on{" "}
-              <span className="text-emerald-400">Clinical Protocols</span>
-            </h2>
-            <p className="text-slate-400 mb-10 text-lg">
-              Get the latest rehabilitation guides and educational content
-              delivered to your inbox.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your professional email"
-                className="flex-1 px-6 py-4 rounded-2xl bg-slate-800 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500"
-              />
-              <button className="px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-2xl transition-all shadow-lg shadow-emerald-900/20">
-                Subscribe Now
-              </button>
-            </div>
-          </div>
-        </section>
+      
 
-        {/* Footer */}
-        <footer className="bg-white py-12 border-t border-slate-100">
-          <div className="max-w-7xl mx-auto px-6 text-center">
-            <p className="text-slate-400 text-sm font-medium">
-              &copy; {new Date().getFullYear()} Clinical Physiotherapy Reference
-              Library. All research-backed content.
-            </p>
-          </div>
-        </footer>
       </div>
     </>
   );
