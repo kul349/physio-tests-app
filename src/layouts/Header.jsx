@@ -52,17 +52,14 @@ function Header() {
           </Link>
         </nav>
 
-        {/* ================= MOBILE MENU ICON ================= */}
         <HiOutlineMenu
           className="text-2xl md:hidden cursor-pointer text-slate-800"
           onClick={() => setMenuOpen(true)}
         />
 
-        {/* ================= MOBILE SIDEBAR ================= */}
         <AnimatePresence>
           {menuOpen && (
             <>
-              {/* Backdrop */}
               <motion.div
                 className="fixed inset-0 bg-black/40 z-40 md:hidden"
                 initial={{ opacity: 0 }}
@@ -71,7 +68,6 @@ function Header() {
                 onClick={() => setMenuOpen(false)}
               />
 
-              {/* Sidebar */}
               <motion.aside
                 className="fixed top-0 right-0 h-full w-72 bg-white z-50 shadow-xl md:hidden "
                 initial={{ x: "100%" }}

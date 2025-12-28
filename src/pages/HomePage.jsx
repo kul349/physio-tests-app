@@ -121,7 +121,7 @@ const HomePage = () => {
       </Helmet>
 
       <h1 className="sr-only">
-        Physio Tests for Patients – Understand Physiotherapy Tests at Home
+        Physio Tests for Patients - Understand Physiotherapy Tests at Home
       </h1>
 
       <div className="px-4 sm:px-6 lg:px-8 mt-10 min-h-screen bg-white font-sans">

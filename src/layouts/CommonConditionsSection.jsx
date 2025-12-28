@@ -2,10 +2,6 @@ import React from "react";
 import { Activity, Thermometer, Accessibility, Brain } from "lucide-react";
 import ConditionCard from "./ConditionCard";
 
-/**
- * Main Section Component
- * Updated with a consistent Emerald clinical theme.
- */
 const CommonConditionsSection = () => {
   const conditions = [
     {
@@ -36,7 +32,6 @@ const CommonConditionsSection = () => {
 
   return (
     <section className="py-24 bg-slate-50 relative overflow-hidden rounded-3xl" id="help">
-      {/* Background Subtle Shapes - Emerald/Teal */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] right-[-5%] w-[400px] h-[400px] bg-emerald-100 rounded-full blur-3xl opacity-30" />
         <div className="absolute bottom-[-10%] left-[-5%] w-[300px] h-[300px] bg-teal-100 rounded-full blur-3xl opacity-30" />
@@ -70,7 +65,6 @@ const CommonConditionsSection = () => {
           ))}
         </div>
 
-        {/* Call to action footer */}
         <div className="mt-16 text-center">
           <p className="text-slate-500 italic text-sm">
             * All assessments are performed by licensed physical therapists

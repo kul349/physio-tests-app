@@ -24,8 +24,8 @@ const DownloadSection = () => {
       link.click();
       document.body.removeChild(link);
 
-      setLoading(false); // stop spinner/loading
-    }, 2000); // 2 seconds delay
+      setLoading(false); 
+    }, 2000); 
   };
 
   return (
@@ -41,11 +41,9 @@ const DownloadSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          {/* Decorative background accents */}
           <div className="absolute top-0 right-0 w-1/2 h-full bg-emerald-50/50 -skew-x-12 translate-x-1/4 pointer-events-none hidden lg:block" />
 
           <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center p-8 md:p-16">
-            {/* Left Column: Content */}
             <div className="text-left">
               <motion.div
                 className="inline-flex items-center space-x-2 bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-6"

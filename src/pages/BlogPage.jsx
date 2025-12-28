@@ -41,7 +41,6 @@ export default function BlogPage() {
         />
         <link rel="canonical" href="https://physio-tests-app.vercel.app/blog" />
 
-        {/* Open Graph */}
         <meta property="og:title" content="Physiotherapy Blog & Guides" />
         <meta
           property="og:description"
@@ -57,6 +56,7 @@ export default function BlogPage() {
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Physiotherapy Blog & Guides" />
+        
         <meta
           name="twitter:description"
           content="Read evidence-based physiotherapy guides, clinical protocols, and research summaries for patients and clinicians."
@@ -69,7 +69,6 @@ export default function BlogPage() {
       </Helmet>
 
       <div className="min-h-screen bg-white font-sans text-slate-900 selection:bg-emerald-100">
-        {/* Hero Header */}
         <header className="relative py-24 overflow-hidden bg-slate-50 border-b border-emerald-100/50">
           <div className="absolute inset-0 bg-[radial-gradient(#10b981_0.5px,transparent_0.5px)] [background-size:24px_24px] opacity-[0.1] -z-10" />
           <div className="max-w-5xl mx-auto px-6 text-center">

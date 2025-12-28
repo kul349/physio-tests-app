@@ -140,7 +140,6 @@ const AssessmentStagesPage = () => {
                   </div>
                 </div>
 
-                {/* Content Side */}
                 <div className="w-full lg:w-1/2 flex flex-col">
                   <div className="flex items-center gap-4 mb-6">
                     <div

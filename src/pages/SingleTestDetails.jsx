@@ -54,49 +54,44 @@ export default function SingleTestDetails() {
   return (
     <>
       <Helmet>
-        <title>{`${test.test_name} - Physiotherapy Assessment Test | Free Physio Test`}</title>
+        <title key="title">{`${test.test_name} - Physiotherapy Assessment Test | Free Physio Test`}</title>
+
         <meta
+          key="description"
           name="description"
           content={`Learn how to perform the ${test.test_name}, a key ${test.region} physiotherapy assessment test, safely at home and understand the results.`}
         />
+
         <link
+          key="canonical"
           rel="canonical"
           href={`https://physio-tests-app.vercel.app/tests/${test.slug}`}
         />
+
         <meta
+          key="og-title"
           property="og:title"
           content={`${test.test_name} Physiotherapy Test`}
         />
         <meta
+          key="og-description"
           property="og:description"
           content={`Learn how to perform the ${test.test_name}, a key ${test.region} physiotherapy assessment test.`}
         />
-        <meta property="og:type" content="article" />
+        <meta key="og-type" property="og:type" content="article" />
         <meta
+          key="og-url"
           property="og:url"
           content={`https://physio-tests-app.vercel.app/tests/${test.slug}`}
         />
         <meta
+          key="og-image"
           property="og:image"
           content={test.thumbnail || "/default-thumbnail.jpg"}
         />
-        <meta property="og:site_name" content="Free Physio Test" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content={`${test.test_name} Self Test at Home`}
-        />
-        <meta
-          name="twitter:description"
-          content={`Learn how to perform the ${test.test_name} safely at home.`}
-        />
-        <meta
-          name="twitter:image"
-          content={test.thumbnail || "/img-post3-600x438.webp"}
-        />
-        <meta name="author" content="Supra" />
-        <meta name="publisher" content="Physio App" />
-        <meta name="robots" content="index, follow" />
+
+        <meta key="robots" name="robots" content="index, follow" />
+        <meta key="author" name="author" content="Supra" />
 
         <script type="application/ld+json">
           {JSON.stringify({
@@ -125,7 +120,6 @@ export default function SingleTestDetails() {
       </Helmet>
 
       <div className="min-h-screen bg-white font-sans text-slate-900 pb-20">
-        {/* Breadcrumb navigation */}
         <nav className="text-sm py-3 px-6 text-slate-500">
           <Link to="/" className="hover:underline">
             Home
