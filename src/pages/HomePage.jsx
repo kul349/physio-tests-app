@@ -59,8 +59,9 @@ const HomePage = () => {
         </title>
         <meta
           name="description"
-          content="Empowering patients to understand their recovery. Access simple guides, video demonstrations, and plain-English explanations for common physiotherapy clinical tests"
+          content="Discover a reliable physiotherapy assessment app with clear test explanations, video guidance, and patient-friendly reports to support injury recovery and learning."
         />
+
         <link rel="canonical" href="https://physio-tests-app.vercel.app/" />
 
         <meta property="og:title" content="Physio Tests for Patients" />

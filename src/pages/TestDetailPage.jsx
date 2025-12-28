@@ -42,7 +42,7 @@ function TestDetailPage() {
     <>
       <Helmet>
         <title>
-          Physiotherapy Test Library | Search and Learn Physical Assessments
+          Physiotherapy Special Tests Library | Clinical Assessment Guides
         </title>
         <meta
           name="description"
@@ -98,6 +98,13 @@ function TestDetailPage() {
                 onChange={(e) => setSearch(e.target.value)}
                 className="block w-full pl-12 pr-4 py-4 bg-white border-2 border-slate-100 rounded-2xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-emerald-500/10 focus:border-emerald-500 transition-all shadow-sm"
               />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {filtered.slice(0, 6).map((test) => (
+                <Link key={test.id} to={`/tests/${test.slug}`}>
+                  {test.test_name}
+                </Link>
+              ))}
             </div>
           </div>
         </div>
