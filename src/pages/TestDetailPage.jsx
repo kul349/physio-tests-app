@@ -99,12 +99,46 @@ function TestDetailPage() {
                 className="block w-full pl-12 pr-4 py-4 bg-white border-2 border-slate-100 rounded-2xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-emerald-500/10 focus:border-emerald-500 transition-all shadow-sm"
               />
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {filtered.slice(0, 6).map((test) => (
-                <Link key={test.id} to={`/tests/${test.slug}`}>
-                  {test.test_name}
-                </Link>
-              ))}
+            {/* FEATURED SECTION - Add this below your search bar */}
+            <div className="max-w-5xl mx-auto px-6 mt-12">
+              <div className="flex items-center justify-between mb-8">
+                <h2 className="text-xl font-bold text-slate-800">
+                  Common Assessments
+                </h2>
+                <span className="text-emerald-600 text-sm font-semibold">
+                  Browse all 100+ guides below
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filtered.slice(0, 6).map((test) => (
+                  <Link
+                    key={test.id}
+                    to={`/tests/${test.slug}`}
+                    className="group bg-white rounded-3xl p-6 border border-slate-100 shadow-sm hover:shadow-md hover:border-emerald-500/30 transition-all flex flex-col"
+                  >
+                    <div className="flex justify-between items-start mb-4">
+                      <span className="px-2 py-1 bg-emerald-50 text-emerald-700 text-[10px] font-bold uppercase rounded-md">
+                        {test.region}
+                      </span>
+                      <Stethoscope className="w-4 h-4 text-slate-300 group-hover:text-emerald-500 transition-colors" />
+                    </div>
+
+                    <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-emerald-600 transition-colors">
+                      {test.test_name}
+                    </h3>
+
+                    <p className="text-slate-500 text-xs line-clamp-2 mb-4">
+                      {test.purpose}
+                    </p>
+
+                    <div className="mt-auto flex items-center text-emerald-600 text-xs font-bold">
+                      View Guide{" "}
+                      <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </div>
