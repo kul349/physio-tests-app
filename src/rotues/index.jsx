@@ -4,7 +4,6 @@ import MainLayout from "../layouts/MainLayout";
 import HomePage from "../pages/HomePage";
 import { usePageTracking } from "../hooks/usePageTracking";
 
-// Lazy-loaded pages
 const TestDetailPage = lazy(() => import("../pages/TestDetailPage"));
 const AssessmentStagesPage = lazy(() =>
   import("../pages/AssessmentStagesPage")
@@ -13,7 +12,6 @@ const BlogPage = lazy(() => import("../pages/BlogPage"));
 const BlogDetails = lazy(() => import("../layouts/Blogdetails"));
 const SingleTestDetails = lazy(() => import("../pages/SingleTestDetails"));
 const AboutUs = lazy(()=>import("../pages/AboutUs")) ;
-// Simple loader (you can replace with skeleton later)
 function PageLoader() {
   return (
     <div className="min-h-screen flex items-center justify-center text-emerald-600 font-bold">
@@ -22,7 +20,7 @@ function PageLoader() {
   );
 }
 function AppRoutes() {
-  usePageTracking(); // automatically track page views
+  usePageTracking(); 
 
   return (
     <Suspense fallback={<PageLoader />}>

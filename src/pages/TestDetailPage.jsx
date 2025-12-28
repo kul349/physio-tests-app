@@ -48,10 +48,10 @@ function TestDetailPage() {
           content="Browse a complete library of physiotherapy assessment tests with clear explanations, clinical purpose, and video demonstrations."
         />
 
-        {/* Correct canonical */}
         <link
           rel="canonical"
-          href="https://physio-tests-app.vercel.app/tests"
+          key="canonical-url"
+          href={`https://physio-tests-app.vercel.app/tests/${filtered.slug}`}
         />
 
         {/* Correct OG */}
