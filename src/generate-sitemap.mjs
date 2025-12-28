@@ -11,11 +11,16 @@ const PUBLIC_DIR = path.join(ROOT_DIR, "public");
 const SITEMAP_PATH = path.join(PUBLIC_DIR, "sitemap.xml");
 const TESTS_PATH = path.join(PUBLIC_DIR, "physio-test.json");
 
-const BASE_URL = "https://physio-tests-app.vercel.app"; // ✅ must be defined here
+const BASE_URL = "https://physio-tests-app.vercel.app";
 
-const tests = JSON.parse(fs.readFileSync(TESTS_PATH, "utf-8"));
+// Load Tests Data
+let tests = [];
+try {
+  tests = JSON.parse(fs.readFileSync(TESTS_PATH, "utf-8"));
+} catch (err) {
+  console.error("❌ Error reading physio-test.json:", err.message);
+}
 
-// Use actual lastmod if available, fallback to today
 const getLastMod = (item) =>
   item.updatedAt || new Date().toISOString().split("T")[0];
 
@@ -25,36 +30,41 @@ const buildUrlEntry = (url, changefreq = "weekly", priority = 0.6, lastmod) => `
     <lastmod>${lastmod || getLastMod({})}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
-  </url>
-`;
+  </url>`;
 
-let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-`;
+const generateSitemap = () => {
+  let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
 
-// Homepage
-sitemap += buildUrlEntry("/", "daily", 1.0);
+  // 1. Static Core Pages (Matching your actual routing)
+  sitemap += buildUrlEntry("/", "daily", 1.0);
+  sitemap += buildUrlEntry("/page/blog", "daily", 0.9);
+  sitemap += buildUrlEntry("/page/test-details", "daily", 0.9);
 
-// Blog list page
-sitemap += buildUrlEntry("/blog", "daily", 0.9);
+  // 2. Individual Blog Pages
+  // Ensure the prefix matches your <Route path="/blog/:slug" />
+  blogs.forEach((b) => {
+    if (b.slug) {
+      sitemap += buildUrlEntry(`/blog/${b.slug}`, "weekly", 0.8, b.updatedAt);
+    }
+  });
 
-// Tests list page
-sitemap += buildUrlEntry("/tests", "daily", 0.9);
+  // 3. Individual Test Pages
+  // Ensure the prefix matches your <Route path="/tests/:slug" />
+  tests.forEach((t) => {
+    if (t.slug) {
+      sitemap += buildUrlEntry(`/tests/${t.slug}`, "weekly", 0.8, t.updatedAt);
+    }
+  });
 
-// Individual blog pages
-blogs.forEach((b) => {
-  if (b.slug)
-    sitemap += buildUrlEntry(`/blog/${b.slug}`, "weekly", 0.7, b.updatedAt);
-});
+  sitemap += "\n</urlset>";
 
-// Individual test pages
-tests.forEach((t) => {
-  if (t.slug)
-    sitemap += buildUrlEntry(`/tests/${t.slug}`, "weekly", 0.7, t.updatedAt);
-});
+  try {
+    fs.writeFileSync(SITEMAP_PATH, sitemap.trim());
+    console.log("✅ Sitemap successfully generated at:", SITEMAP_PATH);
+  } catch (err) {
+    console.error("❌ Error writing sitemap.xml:", err.message);
+  }
+};
 
-sitemap += "\n</urlset>";
-
-fs.writeFileSync(SITEMAP_PATH, sitemap.trim());
-
-console.log("✅ Sitemap generated at:", SITEMAP_PATH);
+generateSitemap();
