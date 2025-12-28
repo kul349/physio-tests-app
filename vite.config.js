@@ -1,16 +1,16 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import prerender from "vite-plugin-prerender";
+import prerender from "vite-plugin-prerender-2"; // Change this line
 import path from "path";
 import fs from "fs";
-import { fileURLToPath } from "url"; 
+import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Dynamic Route Logic (Keep this exactly as we wrote it before)
 const getDynamicRoutes = () => {
   const routes = ["/", "/page/blog", "/page/test-details"];
-
   try {
     const testsPath = path.resolve(__dirname, "public/physio-test.json");
     if (fs.existsSync(testsPath)) {
@@ -19,7 +19,6 @@ const getDynamicRoutes = () => {
         if (test.slug) routes.push(`/tests/${test.slug}`);
       });
     }
-
     const blogDataPath = path.resolve(__dirname, "src/data/blog.js");
     if (fs.existsSync(blogDataPath)) {
       const blogFileContent = fs.readFileSync(blogDataPath, "utf-8");
@@ -30,9 +29,8 @@ const getDynamicRoutes = () => {
       }
     }
   } catch (error) {
-    console.error("❌ Pre-render Error:", error);
+    console.error("❌ Route Fetch Error:", error);
   }
-
   return routes;
 };
 
@@ -43,8 +41,8 @@ export default defineConfig({
       staticDir: path.join(__dirname, "dist"),
       routes: getDynamicRoutes(),
       rendererConfig: {
-        renderAfterElementExists: "#root",
-        maxConcurrentRoutes: 10,
+        // This is key for your SEO tags to be captured correctly
+        renderAfterDocumentEvent: "custom-render-trigger",
       },
     }),
   ],
