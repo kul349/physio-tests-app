@@ -6,9 +6,7 @@ import Footer from "./Footer";
 function MainLayout({ children }) {
   return (
     <div className="relative w-full min-h-screen overflow-y-auto overflow-x-hidden md:h-screen">
-      <Helmet>
-        <meta name="robots" content="index, follow" />
-      </Helmet>
+   
 
       <Header />
       <main id="main-content" role="main" className="flex-grow">
