@@ -7,8 +7,6 @@ function MainLayout({ children }) {
   return (
     <div className="relative w-full min-h-screen overflow-y-auto overflow-x-hidden md:h-screen">
       <Helmet>
-        {/* Global tags that rarely change */}
-        <link rel="canonical" href="https://physio-tests-app.vercel.app/" />
         <meta name="robots" content="index, follow" />
       </Helmet>
 

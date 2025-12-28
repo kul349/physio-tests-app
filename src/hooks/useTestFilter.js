@@ -12,7 +12,7 @@ export function useTests() {
   const [search, setSearch] = useState("");
 
   const {
-    data: tests = [], // default empty array avoids undefined
+    data: tests = [], 
     isLoading,
     error,
   } = useQuery({

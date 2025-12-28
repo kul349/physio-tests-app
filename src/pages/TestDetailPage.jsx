@@ -60,9 +60,15 @@ function TestDetailPage() {
           property="og:description"
           content="Explore a comprehensive physiotherapy test library with step-by-step clinical guides."
         />
+        <link
+          rel="canonical"
+          key="canonical-url"
+          href="https://physio-tests-app.vercel.app/page/test-details"
+        />
+
         <meta
           property="og:url"
-          content="https://physio-tests-app.vercel.app/tests"
+          content="https://physio-tests-app.vercel.app/page/test-details"
         />
         <meta property="og:type" content="website" />
         <meta
