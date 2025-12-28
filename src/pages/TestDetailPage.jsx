@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 
 function TestDetailPage() {
-  const { filtered, search, setSearch, loading, error } = useTests();
+  const { filtered, search, setSearch, loading, error,tests } = useTests();
   const [visibleCount, setVisibleCount] = useState(20);
   const visibleTests = filtered.slice(0, visibleCount);
   const [prevSearch, setPrevSearch] = useState(search);
@@ -51,7 +51,7 @@ function TestDetailPage() {
         <link
           rel="canonical"
           key="canonical-url"
-          href={`https://physio-tests-app.vercel.app/tests/${filtered.slug}`}
+          href={`https://physio-tests-app.vercel.app/tests/${tests.slug}`}
         />
 
         {/* Correct OG */}
