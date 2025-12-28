@@ -54,7 +54,6 @@ const HomePage = () => {
   return (
     <>
       <Helmet>
-        {/* Standard SEO */}
         <title key="title">
           Physio Tests for Patients | Understand Physiotherapy Tests at Home
         </title>
@@ -69,7 +68,6 @@ const HomePage = () => {
           href="https://physio-tests-app.vercel.app/"
         />
 
-        {/* Open Graph (Social Media) */}
         <meta
           key="og-title"
           property="og:title"

@@ -13,7 +13,6 @@ import { useParams, Link } from "react-router-dom";
 import { useTests } from "../hooks/useTestFilter";
 import { Helmet } from "react-helmet-async";
 
-// Get YouTube embed URL
 function getEmbedUrl(url) {
   if (!url) return null;
   let videoId = null;
@@ -29,7 +28,6 @@ function getEmbedUrl(url) {
   return `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`;
 }
 
-// Get related tests based on region
 function getRelatedTests(currentTest, allTests, limit = 4) {
   if (!currentTest || !allTests) return [];
   const related = allTests.filter(

@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 
 function TestDetailPage() {
-  const { filtered, search, setSearch, loading, error,tests } = useTests();
+  const { filtered, search, setSearch, loading, error, } = useTests();
   const [visibleCount, setVisibleCount] = useState(20);
   const visibleTests = filtered.slice(0, visibleCount);
   const [prevSearch, setPrevSearch] = useState(search);
