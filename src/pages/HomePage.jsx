@@ -54,45 +54,70 @@ const HomePage = () => {
   return (
     <>
       <Helmet>
-        <title>
+        {/* Standard SEO */}
+        <title key="title">
           Physio Tests for Patients | Understand Physiotherapy Tests at Home
         </title>
         <meta
+          key="description"
           name="description"
           content="Discover a reliable physiotherapy assessment app with clear test explanations, video guidance, and patient-friendly reports to support injury recovery and learning."
         />
+        <link
+          key="canonical"
+          rel="canonical"
+          href="https://physio-tests-app.vercel.app/"
+        />
 
-        <link rel="canonical" href="https://physio-tests-app.vercel.app/" />
-
-        <meta property="og:title" content="Physio Tests for Patients" />
+        {/* Open Graph (Social Media) */}
         <meta
+          key="og-title"
+          property="og:title"
+          content="Physio Tests for Patients"
+        />
+        <meta
+          key="og-description"
           property="og:description"
           content="Learn physiotherapy tests with videos and guides at home."
         />
         <meta
+          key="og-url"
           property="og:url"
           content="https://physio-tests-app.vercel.app/"
         />
-        <meta property="og:type" content="website" />
+        <meta key="og-type" property="og:type" content="website" />
         <meta
+          key="og-image"
           property="og:image"
           content="https://physio-tests-app.vercel.app/img-slider-1.webp"
         />
+
         <meta name="author" content="Supra" />
         <meta name="publisher" content="Physio App" />
-        <meta name="robots" content="index, follow" />
+        <meta key="robots" name="robots" content="index, follow" />
+
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "WebSite",
-            name: "Physio Tests for Patients",
-            url: "https://physio-tests-app.vercel.app/",
-            potentialAction: {
-              "@type": "SearchAction",
-              target:
-                "https://physio-tests-app.vercel.app/page/test-details?search={search_term_string}",
-              "query-input": "required name=search_term_string",
-            },
+            "@graph": [
+              {
+                "@type": "WebSite",
+                name: "Physio Tests for Patients",
+                url: "https://physio-tests-app.vercel.app/",
+                potentialAction: {
+                  "@type": "SearchAction",
+                  target:
+                    "https://physio-tests-app.vercel.app/page/test-details?search={search_term_string}",
+                  "query-input": "required name=search_term_string",
+                },
+              },
+              {
+                "@type": "Organization",
+                name: "Physio Tests App",
+                url: "https://physio-tests-app.vercel.app",
+                logo: "https://physio-tests-app.vercel.app/favicon_128x128.png",
+              },
+            ],
           })}
         </script>
       </Helmet>
