@@ -92,6 +92,19 @@ export default function SingleTestDetails() {
 
         <meta key="robots" name="robots" content="index, follow" />
         <meta key="author" name="author" content="Supra" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content={`${test.test_name} Physiotherapy Test`}
+        />
+        <meta
+          name="twitter:description"
+          content={`Learn how to perform the ${test.test_name}, a key ${test.region} physiotherapy assessment test.`}
+        />
+        <meta
+          name="twitter:image"
+          content={test.thumbnail || "/default-thumbnail.jpg"}
+        />
 
         <script type="application/ld+json">
           {JSON.stringify({
