@@ -38,12 +38,7 @@ function Header() {
           >
             Assessment
           </Link>
-          <Link
-            to="/page/blog"
-            className="hover:text-emerald-600 transition-colors"
-          >
-            Blog
-          </Link>
+         
           <Link
             to="/page/about-us"
             className="hover:text-emerald-600 transition-colors"
