@@ -48,8 +48,6 @@ function TestDetailPage() {
           content="Browse a complete library of physiotherapy assessment tests with clear explanations, clinical purpose, and video demonstrations."
         />
 
-        
-
         <meta property="og:title" content="Physiotherapy Assessment Tests" />
         <meta
           property="og:description"
@@ -115,32 +113,32 @@ function TestDetailPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {visibleTests.map((test) => (
-              <Link   
-                key={test.id}
-                to={`/tests/${test.slug}`}
-                className="group bg-white rounded-[2rem] p-6 border border-slate-100 shadow-sm hover:shadow-xl hover:border-emerald-500/30 hover:-translate-y-1 transition-all flex flex-col justify-between"
-              >
+              <div className="group bg-white rounded-[2rem] p-6 border border-slate-100 shadow-sm flex flex-col justify-between">
                 <div>
                   <div className="flex justify-between items-start mb-4">
-                    <span className="px-3 py-1 bg-slate-50 text-[10px] font-black uppercase tracking-wider rounded-lg group-hover:bg-emerald-50 group-hover:text-emerald-700 transition-colors">
+                    <span className="px-3 py-1 bg-slate-50 text-[10px] font-black uppercase tracking-wider rounded-lg">
                       {test.region}
                     </span>
-                    <div className="p-2 rounded-full bg-slate-50 text-slate-300 group-hover:text-emerald-500 transition-colors">
-                      <Stethoscope className="w-4 h-4" />
-                    </div>
+                    <Stethoscope className="w-4 h-4 text-slate-300" />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-700 transition-colors line-clamp-2">
+
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">
                     {test.test_name}
                   </h3>
-                  <p className="text-slate-500 text-sm leading-relaxed line-clamp-3 mb-6">
-                    {test.purpose}
-                  </p>
+
+                  <p className="text-slate-500 text-sm mb-6">{test.purpose}</p>
                 </div>
-                <div className="flex items-center text-emerald-600 font-bold text-sm">
-                  learn more
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </Link>
+
+                {/* ONLY CLICKABLE LINK */}
+                <a
+                  href={`/tests/${test.slug}`}
+                  className="flex items-center text-emerald-600 font-bold text-sm mt-auto"
+                  aria-label={`Learn more about ${test.test_name} physiotherapy test`}
+                >
+                  Learn more
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </a>
+              </div>
             ))}
 
             {filtered.length === 0 && (
