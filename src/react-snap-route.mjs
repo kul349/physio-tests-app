@@ -1,6 +1,8 @@
+// src/react-snap-route.mjs
 import fs from "fs";
 import path from "path";
-import chromium from "chrome-aws-lambda";
+import puppeteer from "puppeteer-core";
+import chrome from "chrome-aws-lambda";
 
 // Load your tests JSON
 const tests = JSON.parse(
@@ -11,7 +13,7 @@ const tests = JSON.parse(
 const packageJsonPath = path.resolve("package.json");
 const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf-8"));
 
-// Update reactSnap.include with test slugs
+// Add all routes
 packageJson.reactSnap = packageJson.reactSnap || {};
 packageJson.reactSnap.include = [
   "/",
@@ -19,15 +21,17 @@ packageJson.reactSnap.include = [
   ...tests.map((t) => `/tests/${t.slug}`),
 ];
 
-// Set other React Snap config
-packageJson.reactSnap.source = "dist";
 packageJson.reactSnap.crawl = false;
-packageJson.reactSnap.puppeteer = {
-  executablePath: process.env.CHROME_PATH || (await chromium.executablePath),
-  args: chromium.args.concat(["--no-sandbox", "--disable-setuid-sandbox"]),
-  headless: chromium.headless,
-};
+packageJson.reactSnap.source = "dist";
 
-// Write updated package.json
+// Use chrome-aws-lambda for Puppeteer
+packageJson.reactSnap.puppeteer = async () =>
+  await puppeteer.launch({
+    args: chrome.args,
+    executablePath: await chrome.executablePath,
+    headless: true,
+  });
+
+// Write back to package.json
 fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
-console.log("React Snap routes updated in package.json with chrome-aws-lambda");
+console.log("React Snap routes updated for chrome-aws-lambda");

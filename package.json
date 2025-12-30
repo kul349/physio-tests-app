@@ -4,9 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
     "prebuild": "node src/react-snap-route.mjs && node src/generate-sitemap.mjs",
     "build": "vite build && react-snap",
+    "dev": "vite",
     "preview": "vite preview"
   },
   "dependencies": {
