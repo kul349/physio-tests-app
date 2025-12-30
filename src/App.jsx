@@ -1,16 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import { HelmetProvider } from "react-helmet-async"; 
-import "./index.css";
-import AppRoutes from "./rotues";
+import AppRoutes from "./routes";
 
 function App() {
   return (
-    <HelmetProvider>
-      <Router>
-        <AppRoutes />
-      </Router>
-    </HelmetProvider>
+    <Router>
+      <AppRoutes />
+    </Router>
   );
 }
 

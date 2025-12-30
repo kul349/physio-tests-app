@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "prebuild": "node src/generate-sitemap.mjs",
-    "build": "vite build",
+    "build": "vite-ssg build",
     "dev": "vite",
     "preview": "vite preview"
   },
