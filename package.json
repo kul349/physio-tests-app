@@ -9,12 +9,36 @@
     "build": "vite build && react-snap",
     "preview": "vite preview"
   },
+  "dependencies": {
+    "@tanstack/react-query": "^5.90.12",
+    "chrome-aws-lambda": "^10.1.0",
+    "framer-motion": "^12.23.25",
+    "lucide-react": "^0.562.0",
+    "puppeteer-core": "^24.34.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-helmet-async": "^2.0.5",
+    "react-icons": "^5.5.0",
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.10.1",
+    "vite-ssg": "^28.2.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/react": "^18.2.5",
+    "@types/react-dom": "^18.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "autoprefixer": "^10.4.22",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "postcss": "^8.5.6",
+    "react-snap": "^1.23.0",
+    "tailwindcss": "^3.4.18",
+    "vite": "^7.2.4"
+  },
   "reactSnap": {
-    "crawl": false,
-    "source": "dist",
-    "puppeteerArgs": [
-      "--no-sandbox"
-    ],
     "include": [
       "/",
       "/assessment-tests",
@@ -168,33 +192,39 @@
       "/tests/moving-valgus-stress-test",
       "/tests/hook-test",
       "/tests/pronator-teres-syndrome-test"
-    ]
-  },
-  "dependencies": {
-    "@tanstack/react-query": "^5.90.12",
-    "framer-motion": "^12.23.25",
-    "lucide-react": "^0.562.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-helmet-async": "^2.0.5",
-    "react-icons": "^5.5.0",
-    "react-markdown": "^10.1.0",
-    "react-router-dom": "^7.10.1",
-    "vite-ssg": "^28.2.2"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.39.1",
-    "@types/react": "^18.2.5",
-    "@types/react-dom": "^18.2.3",
-    "@vitejs/plugin-react": "^5.1.1",
-    "autoprefixer": "^10.4.22",
-    "eslint": "^9.39.1",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-react-refresh": "^0.4.24",
-    "globals": "^16.5.0",
-    "postcss": "^8.5.6",
-    "react-snap": "^1.23.0",
-    "tailwindcss": "^3.4.18",
-    "vite": "^7.2.4"
+    ],
+    "source": "dist",
+    "crawl": false,
+    "puppeteer": {
+      "executablePath": null,
+      "args": [
+        "--allow-running-insecure-content",
+        "--autoplay-policy=user-gesture-required",
+        "--disable-component-update",
+        "--disable-domain-reliability",
+        "--disable-features=AudioServiceOutOfProcess,IsolateOrigins,site-per-process",
+        "--disable-print-preview",
+        "--disable-setuid-sandbox",
+        "--disable-site-isolation-trials",
+        "--disable-speech-api",
+        "--disable-web-security",
+        "--disk-cache-size=33554432",
+        "--enable-features=SharedArrayBuffer",
+        "--hide-scrollbars",
+        "--ignore-gpu-blocklist",
+        "--in-process-gpu",
+        "--mute-audio",
+        "--no-default-browser-check",
+        "--no-pings",
+        "--no-sandbox",
+        "--no-zygote",
+        "--use-gl=swiftshader",
+        "--window-size=1920,1080",
+        "--start-maximized",
+        "--no-sandbox",
+        "--disable-setuid-sandbox"
+      ],
+      "headless": false
+    }
   }
 }

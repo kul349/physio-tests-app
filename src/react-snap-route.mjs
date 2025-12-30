@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import chromium from "chrome-aws-lambda";
 
 // Load your tests JSON
 const tests = JSON.parse(
@@ -10,7 +11,7 @@ const tests = JSON.parse(
 const packageJsonPath = path.resolve("package.json");
 const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf-8"));
 
-// Update reactSnap.include
+// Update reactSnap.include with test slugs
 packageJson.reactSnap = packageJson.reactSnap || {};
 packageJson.reactSnap.include = [
   "/",
@@ -18,11 +19,15 @@ packageJson.reactSnap.include = [
   ...tests.map((t) => `/tests/${t.slug}`),
 ];
 
-// Ensure source folder is dist
+// Set other React Snap config
 packageJson.reactSnap.source = "dist";
 packageJson.reactSnap.crawl = false;
-packageJson.reactSnap.puppeteerArgs = ["--no-sandbox"];
+packageJson.reactSnap.puppeteer = {
+  executablePath: process.env.CHROME_PATH || (await chromium.executablePath),
+  args: chromium.args.concat(["--no-sandbox", "--disable-setuid-sandbox"]),
+  headless: chromium.headless,
+};
 
-// Write back to package.json
+// Write updated package.json
 fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
-console.log("React Snap routes updated in package.json");
+console.log("React Snap routes updated in package.json with chrome-aws-lambda");
